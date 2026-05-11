@@ -1,0 +1,244 @@
+ * {
+     padding: 0px;
+     margin: 0px;
+ }
+
+
+ body {
+     background-color: black;
+     margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: 100vw;
+     overflow: hidden;
+
+ }
+
+ .container {
+     background-image: url(assets/bg.jpg);
+     height: 100vh;
+     width: 100%;
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-attachment: fixed;
+     background-size: cover;
+     display: flex;
+     flex-direction: column;
+     filter: blur(0.2);
+ }
+
+ .header {
+     padding: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ #left {
+
+     color: white;
+     display: flex;
+     flex-direction: column;
+     width: 19rem;
+     float: left;
+     height: fit-content;
+     font-size: 20px;
+     line-height: 0.90;
+     padding: 5px;
+ }
+
+ .messages {
+     color: white;
+ }
+
+ .downloadingData {
+     color: white;
+     background-color: green;
+     width: 35rem;
+     height: fit-content;
+     position: relative;
+     align-self: flex-end;
+     top: 1%;
+     right: 57px;
+     border-radius: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     border: 2px solid black;
+     /* visibility: hidden; */
+ }
+
+ .downladingProcess {
+     background-color: black;
+     width: 97%;
+     margin-top: 15px;
+     text-align: center;
+     line-height: 33.55px;
+
+ }
+
+ .downloadingData h3 {
+
+     font-size: 30px;
+ }
+
+ .downloadingData p {
+
+     font-size: 18px;
+ }
+
+ .downloading {
+     box-shadow: 0px 0px 8px grey;
+ }
+
+ #logo {
+     width: 15rem;
+     height: 15rem;
+     color: aliceblue;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     background-image: url(assets/logo.png);
+     background-size: cover;
+     filter: contrast(0.5);
+     z-index: 1;
+ }
+
+ .main {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     color: white;
+     gap: 10px;
+     position: relative;
+     z-index: 2;
+     height: 70%;
+ }
+
+
+ .main h2 {
+     font-size: 45px;
+     color: green;
+ }
+
+ .inputBox {
+     border: 2px solid green;
+     padding: 10px;
+     border-radius: 5px;
+     background-color: black;
+     box-shadow: 0px 0px 15px green;
+ }
+
+ .inputBox p {
+     text-align: center;
+ }
+
+ #input {
+     border: 2px solid green;
+     font-size: 15px;
+     padding: 10px;
+     background-color: black;
+     box-shadow: 0px 0px 15px green;
+     border-radius: 5px;
+     color: grey;
+     width: 15%;
+ }
+
+
+ .terminal {
+     border: 2px solid black;
+     width: 40rem;
+     height: fit-content;
+     background-color: green;
+     position: absolute;
+     align-self: flex-start;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     position: absolute;
+     top: 25px;
+     left: 15px;
+     /* visibility: hidden; */
+ }
+
+
+ .terminalPr,
+ .tracingTr {
+     background-color: rgb(0, 0, 0);
+     width: 88%;
+     text-align: center;
+
+ }
+
+
+ .terminalPr h3 {
+     font-size: 20px;
+     color: green;
+     padding: 5px;
+ }
+
+ .terminalgif,
+ .tracinggif,
+ .monitorgif,
+ .audiogif {
+     width: 100%;
+     height: 90%;
+
+ }
+
+ .monitorgif,
+ .audiogif {
+     border: 2px solid black;
+     /* visibility: hidden; */
+ }
+
+
+ .tracing {
+     border: 2px solid rgb(0, 0, 0);
+     background-color: rgb(16, 49, 16);
+     width: 30rem;
+     position: relative;
+     height: fit-content;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     /* visibility: hidden; */
+ }
+
+ .gifs {
+     align-self: flex-end;
+     position: absolute;
+     top: 25px;
+     right: 15px;
+     width: 35rem;
+     height: 590px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 20px;
+
+ }
+
+ .audio h3,
+ .monitor h3 {
+     font-size: 30px;
+     color: green;
+     text-align: center;
+
+ }
+
+ .monitor {
+
+     width: 100%;
+     height: 45%;
+
+ }
+
+ .audio {
+
+     width: 80%;
+     height: 45%;
+ }
