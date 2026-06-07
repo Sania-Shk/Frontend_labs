@@ -1,0 +1,182 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    border: 2px solid;
+    width: 99%;
+    height: 99%;
+    display: grid;
+    grid-template-areas: 'nav nav'
+        'main  subMain '
+        'footer  subMain';
+
+    grid-template-rows: 120px 200px 1fr;
+    grid-template-columns: 1fr 300px;
+}
+
+/* -----------------------NAVBAR----------------------- */
+
+.navbar {
+    border: 2px solid black;
+    background-color: antiquewhite;
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cityData {
+    border: 2px solid red;
+    width: 25%;
+    font-size: 20px;
+}
+
+.searchBar {
+    border: 2px solid;
+    width: 25%;
+    height: fit-content;
+    padding: 5.5px;
+}
+
+input {
+    padding: 2.3px;
+    font-size: 15px;
+}
+
+#btn {
+    padding: 3px;
+    font-size: 15px;
+}
+
+/* -----------------------MAIN----------------------- */
+.main {
+    border: 2px solid red;
+    grid-area: main;
+    background-color: azure;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    border: 2px solid;
+    width: 45%;
+}
+
+#degree {
+    font-size: 20px;
+}
+
+
+#weather {
+    font-size: 15px;
+}
+
+
+
+#subweatherINfo {
+    font-size: 15px;
+}
+
+.tude {
+    border: 2px solid;
+}
+
+#high {
+    font-size: 10px;
+}
+
+
+
+#long {
+    font-size: 10px;
+}
+
+
+
+
+.right {
+    border: 2px solid;
+    align-self: center;
+    width: 30%;
+}
+
+/* -----------------------SUBMAIN----------------------- */
+.subMain {
+    border: 2px solid blue;
+    grid-area: subMain;
+    background-color: beige;
+}
+
+/* -----------------------FOOTER----------------------- */
+.footer {
+    border: 2px solid green;
+    grid-area: footer;
+    background-color: aquamarine;
+}
+
+.footerTop {
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 30%;
+}
+
+.slot {
+    border: 2px solid red;
+    width: fit-content;
+    padding: 3.5px;
+    text-align: center;
+}
+
+.footerBottom {
+    border: 2px solid;
+    display: flex;
+    justify-content: space-between;
+    height: 50%;
+}
+
+.leftFB {
+    border: 2px solid;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: azure;
+    justify-content: space-between;
+}
+
+#bottomHeading {
+    border: 2px solid;
+    align-self: self-start;
+    width: 100%;
+    text-align: center;
+}
+
+.futureSlot {
+    border: 2px solid;
+    height: 50%;
+}
+
+.rightFB {
+    border: 2px solid;
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#astroheading {
+    width: 100%;
+    align-self: self-start;
+    text-align: center;
+    border: 2px solid;
+}
