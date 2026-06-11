@@ -94,50 +94,73 @@ function timeline(forecastdayz, currentLocation, currentIcon) {
   day.textContent = `${now.toLocaleDateString("en-IN", { weekday: "long" }).toLowerCase()}`;
   month.textContent = `${now.toLocaleDateString("en-IN", { month: "long" }).toLowerCase()}`;
   datee.textContent = `${now.toLocaleDateString("en-IN", { day: "numeric" })}`;
-
   let format = { hour: "numeric", hour12: true };
   let hourlyData = forecastdayz[0].hour;
   let currentSlot = currentLocation.localtime;
   let currentImg = currentIcon;
-  let morningSlot = hourlyData[6];
-  let noonSlot = hourlyData[12];
-  let eveningSlot = hourlyData[18];
-  let nightSlot = hourlyData[23];
+
+  let currentHour = new Date(currentLocation.localtime).getHours();
+  let morningSlot = hourlyData[Math.min(currentHour + 1, 23)];
+  let noonSlot = hourlyData[Math.min(currentHour + 2, 23)];
+  let eveningSlot = hourlyData[Math.min(currentHour + 3, 23)];
+  let nightSlot = hourlyData[Math.min(currentHour + 4, 23)];
+  let slot6Data = hourlyData[Math.min(currentHour + 5, 23)];
+  let slot7Data = hourlyData[Math.min(currentHour + 6, 23)];
+  let slot8Data = hourlyData[Math.min(currentHour + 7, 23)];
 
   // ------- DISPLAY CURRENT -------
-  slotnow.textContent = new Date(currentSlot)
-    .toLocaleTimeString("en-IN", format)
-    .toLowerCase();
-  cuurentIcon.src = currentImg.condition.icon;
+  slotnow.textContent = "now";
+  cuurentIcon.src = currentImg.condition.icon; // Uses backup icon function
   currentDeg.textContent = `${Math.round(currentImg.temp_c)}°C`;
 
-  // ------- DISPLAY MORNING -------
+  // ------- DISPLAY SLOT 2 (+1 Hour) -------
   morning.textContent = new Date(morningSlot.time)
     .toLocaleTimeString("en-IN", format)
     .toLowerCase();
   morningIcon.src = morningSlot.condition.icon;
   morningDeg.textContent = `${Math.round(morningSlot.temp_c)}°C`;
 
-  // ------- DISPLAY NOON -------
+  // ------- DISPLAY SLOT 3 (+2 Hours) -------
   noon.textContent = new Date(noonSlot.time)
     .toLocaleTimeString("en-IN", format)
     .toLowerCase();
   noonIcon.src = noonSlot.condition.icon;
   noonDeg.textContent = `${Math.round(noonSlot.temp_c)}°C`;
 
-  // ------- DISPLAY EVENING -------
+  // ------- DISPLAY SLOT 4 (+3 Hours) -------
   evening.textContent = new Date(eveningSlot.time)
     .toLocaleTimeString("en-IN", format)
     .toLowerCase();
   eveningIcon.src = eveningSlot.condition.icon;
   eveningDeg.textContent = `${Math.round(eveningSlot.temp_c)}°C`;
 
-  // ------- DISPLAY NIGHT -------
+  // ------- DISPLAY SLOT 5 (+4 Hours) -------
   night.textContent = new Date(nightSlot.time)
     .toLocaleTimeString("en-IN", format)
     .toLowerCase();
   nightIcon.src = nightSlot.condition.icon;
   nightDeg.textContent = `${Math.round(nightSlot.temp_c)}°C`;
+
+  // ------- DISPLAY SLOT 6 (+5 Hours) -------
+  slot6.textContent = new Date(slot6Data.time)
+    .toLocaleTimeString("en-IN", format)
+    .toLowerCase();
+  slot6Icon.src = slot6Data.condition.icon;
+  slot6Deg.textContent = `${Math.round(slot6Data.temp_c)}°C`;
+
+  // ------- DISPLAY SLOT 7 (+6 Hours) -------
+  slot7.textContent = new Date(slot7Data.time)
+    .toLocaleTimeString("en-IN", format)
+    .toLowerCase();
+  slot7Icon.src = slot7Data.condition.icon;
+  slot7Deg.textContent = `${Math.round(slot7Data.temp_c)}°C`;
+
+  // ------- DISPLAY SLOT 8 (+7 Hours) -------
+  slot8.textContent = new Date(slot8Data.time)
+    .toLocaleTimeString("en-IN", format)
+    .toLowerCase();
+  slot8Icon.src = slot8Data.condition.icon;
+  slot8Deg.textContent = `${Math.round(slot8Data.temp_c)}°C`;
 }
 
 // ---------------- To-DAY TIMELINE FUNCTION ----------------
@@ -182,23 +205,23 @@ function after_tmrwForcast(after_tmrwData) {
 // ---------------- ASTRO  FUNCTION ----------------
 function todayAstro(astroData) {
   // --- sunrise ---
-  sunriseTxt.textContent = astroData.sunrise;
+  sunriseTxt.textContent = `SR↑: ${astroData.sunrise}`;
   sunriseImg.style.display = "block";
 
   // --- sunset ---
-  sunsetTxt.textContent = astroData.sunset;
+  sunsetTxt.textContent = `SS↓: ${astroData.sunset}`;
   sunsetImg.style.display = "block";
 
   // --- moonnrise ---
-  moonriseTxt.textContent = astroData.moonrise;
+  moonriseTxt.textContent = `MR↑: ${astroData.moonrise}`;
   moonriseImg.style.display = "block";
 
   // --- moonset ---
-  moonsetTxt.textContent = astroData.moonset;
+  moonsetTxt.textContent = `MS↓: ${astroData.moonset}`;
   moonsetImg.style.display = "block";
 
   // --- moonphase ---
-  moonphaseTxt.textContent = astroData.moon_phase;
+  moonphaseTxt.textContent = `🌕MP: ${astroData.moon_phase}`;
   moonphaseImg.style.display = "block";
 }
 

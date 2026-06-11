@@ -4,61 +4,105 @@
     box-sizing: border-box;
 }
 
+
+
 body {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }
 
 .container {
     border: 2px solid;
-    width: 99%;
-    height: 99%;
+    width: 65%;
+    height: 70%;
     display: grid;
     grid-template-areas: 'nav nav'
         'main  subMain '
         'footer  subMain';
 
-    grid-template-rows: 120px 200px 1fr;
-    grid-template-columns: 1fr 300px;
+    grid-template-rows: 80px 200px 1fr;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+    padding: 10px 20px;
 }
 
 /* -----------------------NAVBAR----------------------- */
 
 .navbar {
     border: 2px solid black;
+    border-radius: 5px;
     background-color: antiquewhite;
     grid-area: nav;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1px 24.5px;
+}
+
+.location {
+    width: 43px;
 }
 
 .cityData {
-    border: 2px solid red;
-    width: 25%;
-    font-size: 20px;
+
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5px;
+    position: absolute;
+    left: 418px;
+}
+
+.data1 {
+    font-family: heading;
+    font-size: 16px;
+}
+
+.data2 {
+    font-family: input;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .searchBar {
-    border: 2px solid;
-    width: 25%;
+    width: 21%;
     height: fit-content;
     padding: 5.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7.5px;
+
 }
 
 input {
-    padding: 2.3px;
-    font-size: 15px;
+    font-size: 12px;
+    font-family: 'input';
+    background: transparent;
+    border-radius: 5.5px;
+    padding: 5.5px;
 }
 
 #btn {
-    padding: 3px;
+    padding: 4px;
     font-size: 15px;
+    background: transparent;
+    border-style: none;
+    box-shadow: 0px 0px 4px grey;
+    border-radius: 5.5px;
 }
 
 /* -----------------------MAIN----------------------- */
 .main {
     border: 2px solid red;
+    border-radius: 5px;
     grid-area: main;
     background-color: azure;
     display: flex;
@@ -66,46 +110,56 @@ input {
 }
 
 .left {
-    border: 2px solid;
+
     width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-left: 24.5px;
 }
 
 #degree {
-    font-size: 20px;
+    font-size: 57px;
+    font-family: digit;
 }
 
 
 #weather {
-    font-size: 15px;
+    font-size: 25px;
+    font-family: weatherCondition;
 }
 
-
-
-#subweatherINfo {
-    font-size: 15px;
-}
 
 .tude {
+    font-family: digit;
+    display: flex;
+    justify-content: space-between;
+    gap: 13.5px;
+    width: 45%;
+    align-items: center;
+}
+
+#lat,
+#lon {
     border: 2px solid;
+    border-radius: 19.5px;
+    padding: 4.5px;
+    font-size: 14px;
 }
-
-#high {
-    font-size: 10px;
-}
-
-
-
-#long {
-    font-size: 10px;
-}
-
-
 
 
 .right {
+    border-radius: 5px;
     border: 2px solid;
     align-self: center;
-    width: 30%;
+    width: 24%;
+    font-family: sentence;
+    position: relative;
+    right: 18px;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 5.5px;
 }
 
 /* -----------------------SUBMAIN----------------------- */
@@ -120,6 +174,9 @@ input {
     border: 2px solid green;
     grid-area: footer;
     background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .footerTop {
@@ -128,55 +185,160 @@ input {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 30%;
+    padding: 10px 30px;
+    height: fit-content;
 }
 
 .slot {
-    border: 2px solid red;
+    border: 2px solid black;
     width: fit-content;
-    padding: 3.5px;
+    padding: 6.5px;
+    border-radius: 14px;
     text-align: center;
+    line-height: 22.25px;
 }
+
+.slotheading {
+    font-family: digit;
+    font-size: 12px;
+}
+
+.clouds {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.slotDeg {
+    font-family: digit;
+    font-size: 19px;
+}
+
 
 .footerBottom {
     border: 2px solid;
     display: flex;
     justify-content: space-between;
-    height: 50%;
+    height: fit-content;
 }
 
 .leftFB {
     border: 2px solid;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     background-color: azure;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: fit-content;
 }
 
-#bottomHeading {
-    border: 2px solid;
-    align-self: self-start;
-    width: 100%;
-    text-align: center;
-}
 
 .futureSlot {
-    border: 2px solid;
-    height: 50%;
+    border: 2px solid red;
+    height: fit-content;
+    padding: 8.5px;
+    text-align: center;
+    border-radius: 14px;
+    line-height: 22.25px;
+}
+
+.futureSlotHeading {
+    font-family: 'sentence';
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.futureSlotclouds {
+
+    width: 3rem;
+    height: 2rem;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.CloudStatus {
+    font-family: input;
+    font-size: 15px;
+}
+
+.hum {
+    font-family: 'digit';
+    font-size: 20px;
+}
+
+.max,
+.min {
+    color: orange;
+    font-family: 'digit';
+    font-size: 15px;
 }
 
 .rightFB {
     border: 2px solid;
     width: 40%;
+    padding: 10px 20px;
     display: flex;
+    flex-direction: column;
+    gap: 5px;
     justify-content: space-evenly;
-    flex-wrap: wrap;
 }
 
 #astroheading {
     width: 100%;
-    align-self: self-start;
     text-align: center;
-    border: 2px solid;
+    position: relative;
+    bottom: 10px;
+    font-family: 'heading';
+    font-size: 15px;
+}
+
+.DAY {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.astro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.NIGHT {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dayTxt {
+    font-family: digit;
+    font-size: 14px;
+}
+
+.nightTxt {
+    font-family: digit;
+    font-size: 11.5px;
+}
+
+.astroImg {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+
+}
+
+.astrodefault {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+
+}
+
+/* ==========================================*/
+
+/*  ---------------- BACKGROUND THEME ---------------- */
+.theme-foggy {
+    background-color: #7191AA;
 }

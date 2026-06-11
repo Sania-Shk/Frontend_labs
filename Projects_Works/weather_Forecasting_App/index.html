@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Forecasting App</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="font.css" />
   </head>
   <body>
     <div class="container">
       <nav class="navbar">
+        <img src="assets/location.svg" class="location" />
         <div class="cityData">
           <div class="data1" style="display: inline-flex; gap: 11px">
             <h2 id="city">City</h2>
@@ -24,18 +26,18 @@
 
         <div class="searchBar">
           <input type="text" placeholder="Search Location" id="location" />
-          <button id="btn">*</button>
+          <button id="btn"><img src="assets/search.svg" alt="search" /></button>
         </div>
       </nav>
 
       <main class="main">
         <div class="left">
-          <h2 id="degree">18</h2>
+          <h2 id="degree">18°</h2>
           <h2 id="weather">Stormy</h2>
 
           <div class="tude">
-            <h3 id="lat">lat : 29</h3>
-            <h3 id="lon">lon : 12</h3>
+            <h3 id="lat">lat : 29°</h3>
+            <h3 id="lon">lon : 12°</h3>
           </div>
         </div>
 
@@ -52,117 +54,218 @@
       <footer class="footer">
         <div class="footerTop">
           <div class="slot">
-            <h5 id="slotnow">now</h5>
-            <img src="#" alt="img" class="slotCloud" id="nowIcon" />
-            <h4 id="currentDeg">18</h4>
+            <h5 id="slotnow" class="slotheading">now</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="nowIcon"
+            />
+            <h4 id="currentDeg" class="slotDeg">18</h4>
           </div>
 
           <div class="slot">
-            <h5 id="morning">2</h5>
-            <img src="#" alt="img" class="clouds" id="morningIcon" />
-            <h4 id="morningDeg">18</h4>
+            <h5 id="morning" class="slotheading">--</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="morningIcon"
+            />
+            <h4 id="morningDeg" class="slotDeg">18</h4>
           </div>
 
           <div class="slot">
-            <h5 id="noon">3</h5>
-            <img src="#" alt="img" class="clouds" id="noonIcon" />
-            <h4 id="noonDeg">18</h4>
+            <h5 id="noon" class="slotheading">--</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="noonIcon"
+            />
+            <h4 id="noonDeg" class="slotDeg">18</h4>
           </div>
 
           <div class="slot">
-            <h5 id="evening">4</h5>
-            <img src="#" alt="img" class="clouds" id="eveningIcon" />
-            <h4 id="eveningDeg">18</h4>
+            <h5 id="evening" class="slotheading">--</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="eveningIcon"
+            />
+            <h4 id="eveningDeg" class="slotDeg">18</h4>
           </div>
 
           <div class="slot">
-            <h5 id="night">5</h5>
-            <img src="#" alt="img" class="clouds" id="nightIcon" />
-            <h4 id="nightDeg">18</h4>
+            <h5 id="night" class="slotheading">--</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="nightIcon"
+            />
+            <h4 id="nightDeg" class="slotDeg">18</h4>
+          </div>
+
+          <div class="slot">
+            <h5 id="slot6" class="slotheading">--</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="slot6Icon"
+            />
+            <h4 id="slot6Deg" class="slotDeg">18</h4>
+          </div>
+
+          <div class="slot">
+            <h5 id="slot7" class="slotheading">--</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="slot7Icon"
+            />
+            <h4 id="slot7Deg" class="slotDeg">18</h4>
+          </div>
+
+          <div class="slot">
+            <h5 id="slot8" class="slotheading">--</h5>
+            <img
+              src="assets/defaultCloud.svg"
+              alt="img"
+              class="clouds"
+              id="slot8Icon"
+            />
+            <h4 id="slot8Deg" class="slotDeg">18</h4>
           </div>
         </div>
 
         <div class="footerBottom">
           <div class="leftFB">
-            <h2 id="bottomHeading">3-days Forecast</h2>
-
             <div class="futureSlot">
-              <h5 id="todaySlot">today</h5>
-              <img src="#" alt="img" class="todayClouds" id="tdy" />
-              <h4 id="todayCloudStatus">text</h4>
-              <p id="tdyHum">humidity</p>
-              <p id="tdyMin">mintemp</p>
-              <p id="tdyMax">maxtemp</p>
+              <h5 id="todaySlot" class="futureSlotHeading">today</h5>
+              <img
+                src="assets/defaultCloud.svg"
+                alt="img"
+                class="futureSlotclouds"
+                id="tdy"
+              />
+              <h4 id="todayCloudStatus" class="CloudStatus">sunny</h4>
+              <p id="tdyHum" class="hum">12</p>
+              <p id="tdyMin" class="min">34</p>
+              <p id="tdyMax" class="max">45</p>
             </div>
 
             <!-- =--------------= -->
 
             <div class="futureSlot">
-              <h5 id="tomorrowSlot">tomorrow</h5>
-              <img src="#" alt="img" class="futureClouds" id="tmrw" />
-              <h4 id="tmrwCloudStatus">text</h4>
-              <p id="tmrwHum">humidity</p>
-              <p id="tmrwMin">mintemp</p>
-              <p id="tmrwMax">maxtemp</p>
+              <h5 id="tomorrowSlot" class="futureSlotHeading">tomorrow</h5>
+              <img
+                src="assets/defaultCloud.svg"
+                alt="img"
+                class="futureSlotclouds"
+                ;
+                id="tmrw"
+              />
+              <h4 id="tmrwCloudStatus" class="CloudStatus">rainy</h4>
+              <p id="tmrwHum" class="hum">12</p>
+              <p id="tmrwMin" class="min">34</p>
+              <p id="tmrwMax" class="max">45</p>
             </div>
 
             <!-- =--------------= -->
 
             <div class="futureSlot">
-              <h5 id="AftertomorrowSlot">day after</h5>
-              <img src="#" alt="img" class="futureClouds" id="after_tmrw" />
-              <h4 id="after_tmrwCloudStatus">text</h4>
-              <p id="after_tmrwHum">humidity</p>
-              <p id="after_tmrwMin">mintemp</p>
-              <p id="after_tmrwMax">maxtemp</p>
+              <h5 id="AftertomorrowSlot" class="futureSlotHeading">
+                day after
+              </h5>
+              <img
+                src="assets/defaultCloud.svg"
+                alt="img"
+                class="futureSlotclouds"
+                id="after_tmrw"
+              />
+              <h4 id="after_tmrwCloudStatus" class="CloudStatus">stormy</h4>
+              <p id="after_tmrwHum" class="hum">21</p>
+              <p id="after_tmrwMin" class="min">34</p>
+              <p id="after_tmrwMax" class="max">45</p>
             </div>
           </div>
           <div class="rightFB">
             <h2 id="astroheading">TODAY ASTRO</h2>
-            <div class="sunrise">
-              <img
-                src="assets/sunrise.png"
-                alt="image"
-                id="sunriseImg"
-                style="display: none"
-              />
-              <p id="sunriseTxt">text</p>
+            <div class="DAY">
+              <div class="astro">
+                <img
+                  src="assets/sunrise.png"
+                  alt="image"
+                  id="sunriseImg"
+                  class="astroImg"
+                  style="display: none"
+                />
+                <p id="sunriseTxt" class="dayTxt">
+                  <img src="assets/sunastro.png" class="astrodefault" />
+                  Sunrise
+                </p>
+              </div>
+              <div class="astro">
+                <img
+                  src="assets/sunset.png"
+                  alt="image"
+                  id="sunsetImg"
+                  class="astroImg"
+                  style="display: none"
+                />
+                <p id="sunsetTxt" class="dayTxt">
+                  <img src="assets/sunastro.png" class="astrodefault" />
+                  Sunset
+                </p>
+              </div>
             </div>
-            <div class="sunset">
-              <img
-                src="assets/sunset.png"
-                alt="image"
-                id="sunsetImg"
-                style="display: none"
-              />
-              <p id="sunsetTxt">text</p>
-            </div>
-            <div class="moonrise">
-              <img
-                src="assets/moonrise.png"
-                alt="image"
-                id="moonriseImg"
-                style="display: none"
-              />
-              <p id="moonriseTxt">text</p>
-            </div>
-            <div class="moonset">
-              <img
-                src="assets/moonset.png"
-                alt="image"
-                id="moonsetImg"
-                style="display: none"
-              />
-              <p id="moonsetTxt">text</p>
-            </div>
-            <div class="moonphase">
-              <img
-                src="assets/moonphase.png"
-                alt="image"
-                id="moonphaseImg"
-                style="display: none"
-              />
-              <p id="moonphaseTxt">text</p>
+
+            <!--  -->
+
+            <div class="NIGHT">
+              <div class="astro">
+                <img
+                  src="assets/moonrise.png"
+                  alt="image"
+                  id="moonriseImg"
+                  class="astroImg"
+                  style="display: none"
+                />
+                <p id="moonriseTxt" class="nightTxt">
+                  <img src="assets/moonastro.png" class="astrodefault" />
+                  moonrise
+                </p>
+              </div>
+              <div class="astro">
+                <img
+                  src="assets/moonset.png"
+                  alt="image"
+                  id="moonsetImg"
+                  class="astroImg"
+                  style="display: none"
+                />
+                <p id="moonsetTxt" class="nightTxt">
+                  <img src="assets/moonastro.png" class="astrodefault" />
+                  moonset
+                </p>
+              </div>
+              <div class="astro">
+                <img
+                  src="assets/moonphase.png"
+                  alt="image"
+                  id="moonphaseImg"
+                  class="astroImg"
+                  style="display: none"
+                />
+                <p id="moonphaseTxt" class="nightTxt">
+                  <img src="assets/moonastro.png" class="astrodefault" />
+                  Moonphase
+                </p>
+              </div>
             </div>
           </div>
         </div>

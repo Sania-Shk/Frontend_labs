@@ -1,0 +1,29 @@
+@font-face {
+    font-family: heading;
+    src: url(assets/Fonts/montserrat-alternates.extrabold-italic.ttf);
+}
+
+@font-face {
+    font-family: input;
+    src: url(assets/Fonts/lato.medium.ttf);
+}
+
+@font-face {
+    font-family: sentence;
+    src: url(assets/Fonts/merriweather.light.ttf);
+}
+
+@font-face {
+    font-family: tempt;
+    src: url(assets/Fonts/oswald.regular.ttf);
+}
+
+@font-face {
+    font-family: weatherCondition;
+    src: url(assets/Fonts/raleway.regular.ttf);
+}
+
+@font-face {
+    font-family: digit;
+    src: url(assets/Fonts/roboto-slab.regular.ttf);
+}
