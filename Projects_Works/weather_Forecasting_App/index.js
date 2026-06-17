@@ -110,7 +110,7 @@ function timeline(forecastdayz, currentLocation, currentIcon) {
 
   // ------- DISPLAY CURRENT -------
   slotnow.textContent = "now";
-  cuurentIcon.src = currentImg.condition.icon; // Uses backup icon function
+  cuurentIcon.src = currentImg.condition.icon;
   currentDeg.textContent = `${Math.round(currentImg.temp_c)}°C`;
 
   // ------- DISPLAY SLOT 2 (+1 Hour) -------
@@ -171,9 +171,9 @@ function todayForcast(tdyData) {
   todaySlot.textContent = tdyDay;
   tdy.src = tdyData.day.condition.icon;
   todayCloudStatus.textContent = tdyData.day.condition.text;
-  tdyHum.textContent = `${Math.round(tdyData.day.avghumidity)}°C`;
-  tdyMax.textContent = `${Math.round(tdyData.day.maxtemp_c)}°C`;
-  tdyMin.textContent = `${Math.round(tdyData.day.mintemp_c)}°C`;
+  tdyHum.textContent = `H : ${Math.round(tdyData.day.avghumidity)}%`;
+  tdyMax.textContent = `Mx : ${Math.round(tdyData.day.maxtemp_c)}°C`;
+  tdyMin.textContent = `Mn : ${Math.round(tdyData.day.mintemp_c)}°C`;
 }
 
 // ---------------- NEXT-DAY TIMELINE FUNCTION ----------------
@@ -184,9 +184,9 @@ function tmrwForcast(tmrwData) {
   tomorrowSlot.textContent = tmrwDay;
   tmrw.src = tmrwData.day.condition.icon;
   tmrwCloudStatus.textContent = tmrwData.day.condition.text;
-  tmrwHum.textContent = `${Math.round(tmrwData.day.avghumidity)}°C`;
-  tmrwMax.textContent = `${Math.round(tmrwData.day.maxtemp_c)}°C`;
-  tmrwMin.textContent = `${Math.round(tmrwData.day.mintemp_c)}°C`;
+  tmrwHum.textContent = `H : ${Math.round(tmrwData.day.avghumidity)}%`;
+  tmrwMax.textContent = `Mx : ${Math.round(tmrwData.day.maxtemp_c)}°C`;
+  tmrwMin.textContent = `Mn : ${Math.round(tmrwData.day.mintemp_c)}°C`;
 }
 
 // ---------------- DAY AFTER TIMELINE FUNCTION ----------------
@@ -197,40 +197,79 @@ function after_tmrwForcast(after_tmrwData) {
   aftertomorrowSlot.textContent = after_tmrwDay;
   after_tmrw.src = after_tmrwData.day.condition.icon;
   after_tmrwCloudStatus.textContent = after_tmrwData.day.condition.text;
-  after_tmrwHum.textContent = `${Math.round(after_tmrwData.day.avghumidity)}°C`;
-  after_tmrwMax.textContent = `${Math.round(after_tmrwData.day.maxtemp_c)}°C`;
-  after_tmrwMin.textContent = `${Math.round(after_tmrwData.day.mintemp_c)}°C`;
+  after_tmrwHum.textContent = `H : ${Math.round(after_tmrwData.day.avghumidity)}%   `;
+  after_tmrwMax.textContent = `Mx : ${Math.round(after_tmrwData.day.maxtemp_c)}°C`;
+  after_tmrwMin.textContent = `Mn : ${Math.round(after_tmrwData.day.mintemp_c)}°C`;
 }
 
 // ---------------- ASTRO  FUNCTION ----------------
 function todayAstro(astroData) {
-  // --- sunrise ---
   sunriseTxt.textContent = `SR↑: ${astroData.sunrise}`;
   sunriseImg.style.display = "block";
 
-  // --- sunset ---
   sunsetTxt.textContent = `SS↓: ${astroData.sunset}`;
   sunsetImg.style.display = "block";
 
-  // --- moonnrise ---
   moonriseTxt.textContent = `MR↑: ${astroData.moonrise}`;
   moonriseImg.style.display = "block";
 
-  // --- moonset ---
   moonsetTxt.textContent = `MS↓: ${astroData.moonset}`;
   moonsetImg.style.display = "block";
 
-  // --- moonphase ---
   moonphaseTxt.textContent = `🌕MP: ${astroData.moon_phase}`;
   moonphaseImg.style.display = "block";
+}
+
+// ---------------- WEATHER THEME FUNCTION ----------------
+
+function bgTheme(weatherTheme) {
+  let Theme = weatherTheme.toLowerCase();
+  if (Theme.includes("clear") || Theme.includes("sunny")) {
+    return "theme_sunny";
+  } else if (Theme.includes("cloudy") || Theme.includes("overcast")) {
+    return "theme_cloudy";
+  } else if (Theme.includes("mist") || Theme.includes("fog")) {
+    return "theme_foggy";
+  } else if (
+    Theme.includes("rain") ||
+    Theme.includes("drizzle") ||
+    Theme.includes("shower") ||
+    Theme.includes("patchy")
+  ) {
+    return "theme_rainy";
+  } else if (Theme.includes("thunder") || Theme.includes("storm")) {
+    return "theme_stormy";
+  }
+}
+
+// ---------------- WEATHER THEME QUOTE FUNCTION ----------------
+
+let quote = document.querySelector("#quote");
+
+function weatherQuote() {
+  let themeQuote = document.body.className;
+  if (themeQuote === "theme_sunny") {
+    quote.textContent =
+      "☀️ A bright gadget of light has just been unlocked, flooding the earth with warmth and reminding us that better days are always ahead. ☀️";
+  } else if (themeQuote === "theme_cloudy") {
+    quote.textContent =
+      "☁️ The sky has put on a heavy grey coat today, gently asking the sun to rest so the world can slow down and breathe. ☁️";
+  } else if (themeQuote === "theme_rainy") {
+    quote.textContent =
+      " 🌧️These tears from the sky are necessary; they wash away the noise of yesterday so we can start fresh when the sun returns. 🌧️";
+  } else if (themeQuote === "theme_stormy") {
+    quote.textContent =
+      " ⚡The dark sky screams in anger right now, but every great storm eventually runs out of rain to reveal a quiet, clear tomorrow. ⚡";
+  } else if (themeQuote === "theme_foggy") {
+    quote.textContent =
+      "🌫️ The world disappears into a thick mist, erasing the streets until everything feels like a quiet dream. 🌫️";
+  }
 }
 
 // ---------------- FETCH DATA FUNCTION ----------------
 async function getdata() {
   let value = data.value.toLowerCase();
   let apikey = "1c595c024b6f4ceb834152010261505";
-
-  // ---------------- Forecast API ----------------
   let apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apikey}&q=${value}&days=7`;
 
   const fetchData = await fetch(apiUrl);
@@ -239,19 +278,17 @@ async function getdata() {
   city.textContent = response.location.country;
   state.textContent = response.location.region;
   weather.textContent = response.current.condition.text;
-  degree.textContent = response.current.temp_c;
-  lat.textContent = response.location.lat;
-  lon.textContent = response.location.lon;
+  degree.textContent = `${response.current.temp_c}°`;
+  lat.textContent = `lat : ${response.location.lat}°`;
+  lon.textContent = `lon : ${response.location.lon}°`;
 
-  // Testing data into console
-  console.log(response.forecast.forecastday[0].astro);
-
-  // Called  function
   timeline(response.forecast.forecastday, response.location, response.current);
   todayForcast(response.forecast.forecastday[0]);
   tmrwForcast(response.forecast.forecastday[1]);
   after_tmrwForcast(response.forecast.forecastday[2]);
   todayAstro(response.forecast.forecastday[0].astro);
+  document.body.className = bgTheme(response.current.condition.text);
+  weatherQuote();
 }
 
 // ==========================================
@@ -260,4 +297,5 @@ async function getdata() {
 
 btn.addEventListener("click", function () {
   getdata();
+  data.value = " ";
 });

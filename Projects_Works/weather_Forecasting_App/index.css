@@ -12,14 +12,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
+    /*  */
+    background-image: url(assets/defaultbg2.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
 }
 
 .container {
-    border: 2px solid;
+
     width: 65%;
-    height: 70%;
+    height: fit-content;
     display: grid;
     grid-template-areas: 'nav nav'
         'main  subMain '
@@ -29,14 +33,17 @@ body {
     grid-template-columns: 1fr 280px;
     gap: 20px;
     padding: 10px 20px;
+    border-radius: 10px;
+    /*  */
+    border: 1px solid #C58D9F;
+    box-shadow: 0px 0px 8px #C58D9F;
+
 }
 
 /* -----------------------NAVBAR----------------------- */
 
 .navbar {
-    border: 2px solid black;
     border-radius: 5px;
-    background-color: antiquewhite;
     grid-area: nav;
     display: flex;
     align-items: center;
@@ -50,14 +57,17 @@ body {
 
 .cityData {
 
-    width: 12%;
+    width: 20%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 2.5px;
     position: absolute;
-    left: 418px;
+    left: 432px;
+
+    /*  */
+    color: #a985bb;
 }
 
 .data1 {
@@ -88,6 +98,10 @@ input {
     background: transparent;
     border-radius: 5.5px;
     padding: 5.5px;
+    /*  */
+    border: none;
+    box-shadow: 0px 0px 5px #b6b9b9;
+    color: #D7AFBB;
 }
 
 #btn {
@@ -95,18 +109,27 @@ input {
     font-size: 15px;
     background: transparent;
     border-style: none;
-    box-shadow: 0px 0px 4px grey;
+    box-shadow: 0px 0px 3px #CDD6DF;
     border-radius: 5.5px;
 }
 
 /* -----------------------MAIN----------------------- */
 .main {
-    border: 2px solid red;
-    border-radius: 5px;
+    border-radius: 10px;
     grid-area: main;
-    background-color: azure;
     display: flex;
     justify-content: space-between;
+    border: 2px solid;
+
+    /*  */
+    border: 1px solid #C58D9F;
+    box-shadow: 0px 0px 8px #C58D9F;
+    background-image: url(assets/defaultbg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+
 }
 
 .left {
@@ -117,17 +140,21 @@ input {
     align-items: flex-start;
     justify-content: space-around;
     margin-left: 24.5px;
+    /*  */
+    color: #85626d;
 }
 
 #degree {
     font-size: 57px;
     font-family: digit;
+
 }
 
 
 #weather {
     font-size: 25px;
     font-family: weatherCondition;
+
 }
 
 
@@ -142,24 +169,29 @@ input {
 
 #lat,
 #lon {
-    border: 2px solid;
     border-radius: 19.5px;
     padding: 4.5px;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    /*  */
+    box-shadow: 0px 0px 5px #ECB1CA;
+    color: #85626d;
 }
 
 
 .right {
     border-radius: 5px;
-    border: 2px solid;
     align-self: center;
     width: 24%;
     font-family: sentence;
     position: relative;
     right: 18px;
-    font-weight: 600;
     font-size: 12px;
     padding: 5.5px;
+    font-weight: 600;
+    /*  */
+    box-shadow: 0px 0px 5px #ECB1CA;
+    color: #af8b96;
 }
 
 /* -----------------------SUBMAIN----------------------- */
@@ -171,36 +203,48 @@ input {
 
 /* -----------------------FOOTER----------------------- */
 .footer {
-    border: 2px solid green;
     grid-area: footer;
-    background-color: aquamarine;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .footerTop {
-    border: 2px solid;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 30px;
     height: fit-content;
+    border-radius: 10px;
+    /*  */
+    background-color: rgba(14, 54, 68, 0.2);
+    border: 1px solid #C58D9F;
+    box-shadow: 0px 0px 8px #C58D9F;
 }
 
 .slot {
-    border: 2px solid black;
+    border: 1px solid #636568;
     width: fit-content;
     padding: 6.5px;
     border-radius: 14px;
     text-align: center;
     line-height: 22.25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/*  */
+.slot:hover {
+    border: 1px solid #743a51;
+    box-shadow: 0px 0px 10px rgb(92, 22, 92);
+    transform: scale(0.9, 0.9);
 }
 
 .slotheading {
     font-family: digit;
     font-size: 12px;
+    /*  */
+    color: rgb(172, 155, 131);
 }
 
 .clouds {
@@ -213,40 +257,49 @@ input {
 .slotDeg {
     font-family: digit;
     font-size: 19px;
+    /*  */
+    color: rgb(172, 155, 131);
 }
 
 
 .footerBottom {
-    border: 2px solid;
     display: flex;
     justify-content: space-between;
     height: fit-content;
 }
 
 .leftFB {
-    border: 2px solid;
     width: 60%;
     display: flex;
     flex-wrap: wrap;
-    background-color: azure;
     justify-content: space-around;
     height: fit-content;
 }
 
 
 .futureSlot {
-    border: 2px solid red;
+
     height: fit-content;
     padding: 8.5px;
     text-align: center;
     border-radius: 14px;
     line-height: 22.25px;
+    /*  */
+    background-color: rgba(194, 167, 201, 0.2)
+}
+
+.futureSlot:hover {
+    background-color: rgba(109, 57, 80, 0.3);
+    box-shadow: 0px 0px 5px rgb(206, 188, 164);
+
 }
 
 .futureSlotHeading {
     font-family: 'sentence';
     font-size: 15px;
     font-weight: 700;
+    /*  */
+    color: rgb(172, 155, 131);
 }
 
 .futureSlotclouds {
@@ -260,28 +313,37 @@ input {
 .CloudStatus {
     font-family: input;
     font-size: 15px;
+    /*  */
+    color: rgb(206, 188, 164);
 }
 
 .hum {
     font-family: 'digit';
     font-size: 20px;
+    /*  */
+    color: rgb(206, 188, 164);
 }
 
 .max,
 .min {
-    color: orange;
     font-family: 'digit';
     font-size: 15px;
+    /*  */
+    color: rgb(187, 173, 152);
 }
 
 .rightFB {
-    border: 2px solid;
     width: 40%;
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
     justify-content: space-evenly;
+    border-radius: 10px;
+    /*  */
+    background-color: rgba(194, 167, 201, 0.2);
+    border: 1px solid #C58D9F;
+    box-shadow: 0px 0px 8px #C58D9F;
 }
 
 #astroheading {
@@ -291,12 +353,17 @@ input {
     bottom: 10px;
     font-family: 'heading';
     font-size: 15px;
+    /*  */
+    color: #85626d;
 }
 
 .DAY {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /*  */
+    color: #D7AFBB;
+
 }
 
 .astro {
@@ -310,6 +377,8 @@ input {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /*  */
+    color: #D7AFBB;
 }
 
 .dayTxt {
@@ -337,8 +406,582 @@ input {
 }
 
 /* ==========================================*/
+/*  ---------------- STORMY BG THEME ---------------- */
+/* ==========================================*/
 
-/*  ---------------- BACKGROUND THEME ---------------- */
-.theme-foggy {
-    background-color: #7191AA;
+.theme_stormy {
+    background-image: url(assets/stromySKY.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_stormy .container {
+    border-radius: 10px;
+    border: 2px solid #123440;
+    box-shadow: 0px 0px 3px #123440;
+    background: linear-gradient(to left, #253D43, #010101, #0E1B22);
+}
+
+.theme_stormy .cityData {
+    color: #467276
+}
+
+.theme_stormy input {
+    border: 1px solid #253D43;
+    box-shadow: 0px 0px 5px #518694;
+    color: #B7DEEA;
+}
+
+.theme_stormy .main {
+    border: 2px solid #123440;
+    box-shadow: 0px 0px 3px #123440;
+    background-image: url(assets/stromySKY.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_stormy .left {
+    color: #548493;
+}
+
+.theme_stormy #lat,
+.theme_stormy #lon,
+.theme_stormy .right {
+    box-shadow: 0px 0px 3px #A6CFDC;
+    color: #A6CFDC;
+}
+
+.theme_stormy .footerTop {
+    background-color: rgba(37, 61, 67, 0.2);
+    border: 2px solid #123440;
+    box-shadow: 0px 0px 3px #123440;
+}
+
+.theme_stormy .slot:hover {
+    border: 2px solid #123440;
+    box-shadow: 0px 0px 8px #123440;
+    transform: scale(0.9, 0.9);
+}
+
+.theme_stormy .slotheading,
+.theme_stormy .futureSlotHeading,
+.theme_stormy #astroheading {
+    color: #5e9599;
+}
+
+.theme_stormy .slotDeg,
+.theme_stormy .CloudStatus {
+    color: #316472;
+}
+
+.theme_stormy .futureSlot {
+    border: 1px solid #123440;
+}
+
+.theme_stormy .futureSlot:hover {
+    border: 2px solid #123440;
+    box-shadow: 0px 0px 8px #123440;
+    background-color: rgba(37, 61, 67, 0.2);
+}
+
+.theme_stormy .hum {
+    color: #467276;
+}
+
+.theme_stormy .max,
+.theme_stormy .min {
+    color: #BCE0EC;
+}
+
+.theme_stormy .rightFB {
+    background-color: rgba(16, 193, 241, 0.2);
+    box-shadow: 0px 0px 2px #316472;
+    border: 2px solid #123440;
+}
+
+.theme_stormy .DAY,
+.theme_stormy .NIGHT {
+    color: #437481;
+}
+
+/* ==========================================*/
+/*  ---------------- FOG/MISTY BG THEME ---------------- */
+/* ==========================================*/
+
+
+.theme_foggy {
+    background-image: url(assets/misty.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_foggy .container {
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #3B3026;
+    background: linear-gradient(to left, #3B3026, #1B1A1E);
+    border: 1px solid #F2E1C5;
+}
+
+.theme_foggy .cityData {
+    color: #8D806B
+}
+
+.theme_foggy input {
+    border: 1px solid #3B3026;
+    box-shadow: 0px 0px 5px #8D806B;
+    color: #F7E3CA;
+}
+
+.theme_foggy .main {
+    border: 1px solid #F2E1C5;
+    box-shadow: 0px 0px 5px #F2E1C5;
+    background-image: url(assets/misty.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_foggy .left {
+    color: #413726;
+}
+
+.theme_foggy #lat,
+.theme_foggy #lon,
+.theme_foggy .right {
+    box-shadow: 0px 0px 5px #413726;
+    color: #413726;
+}
+
+.theme_foggy .footerTop {
+    background-color: rgba(105, 96, 79, 0.3);
+    border: 1px solid #F2E1C5;
+    box-shadow: 0px 0px 5px #F2E1C5;
+}
+
+.theme_foggy .slot:hover {
+    border: 1px solid #F2E1C5;
+    box-shadow: 0px 0px 8px #F2E1C5;
+    transform: scale(0.9, 0.9);
+}
+
+.theme_foggy .slotheading,
+.theme_foggy #astroheading {
+    color: #A29781;
+}
+
+.theme_foggy .slotDeg,
+.theme_foggy .CloudStatus {
+    color: #F0D8BA
+}
+
+.theme_foggy .futureSlot {
+    border: 1px solid #8d744d;
+
+}
+
+.theme_foggy .futureSlotHeading {
+    color: #F0D8BA;
+}
+
+.theme_foggy .futureSlot:hover {
+    background-color: rgba(105, 96, 79, 0.3);
+    border: 2px solid #F2E1C5;
+    box-shadow: 0px 0px 8px #F2E1C5;
+}
+
+.theme_foggy .max,
+.theme_foggy .min {
+    color: #d1b17d;
+}
+
+.theme_foggy .hum {
+    color: #867a67;
+}
+
+.theme_foggy .rightFB {
+    background-color: rgba(105, 96, 79, 0.3);
+    box-shadow: 0px 0px 8px #F2E1C5;
+}
+
+.theme_foggy .DAY,
+.theme_foggy .NIGHT {
+    color: #AC9F89;
+}
+
+
+/* ==========================================*/
+/*  ---------------- CLOUDY BG THEME ---------------- */
+/* ==========================================*/
+
+
+.theme_cloudy {
+    background-image: url(assets/cloudy3.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_cloudy .container {
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #A0B5C6;
+    background: linear-gradient(to left, #3b464e, #243F5D, #182D50);
+    border: 1px solid #4d688f;
+}
+
+.theme_cloudy .cityData {
+    color: #A0B5C6;
+}
+
+.theme_cloudy input {
+    border: 1px solid #33537A;
+    box-shadow: 0px 0px 5px #CDD6DF;
+    color: #9fadc0;
+}
+
+.theme_cloudy .main {
+    border: 1px solid #4d688f;
+    box-shadow: 0px 0px 8px #CED5DB;
+    background-image: url(assets/cloudy3.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_cloudy .left {
+    color: #182D50;
+
+}
+
+.theme_cloudy #lat,
+.theme_cloudy #lon {
+    box-shadow: 0px 0px 20px #1d232b;
+    color: #556273;
+}
+
+.theme_cloudy .right {
+    box-shadow: 0px 0px 8px #1d232b;
+    color: #182D50;
+}
+
+.theme_cloudy .footerTop {
+    box-shadow: 0px 0px 8px #CED5DB;
+
+}
+
+.theme_cloudy .slot:hover {
+    border: 1px solid #182D50;
+    box-shadow: 0px 0px 8px #182D50;
+    transform: scale(0.9, 0.9);
+}
+
+.theme_cloudy .slotheading {
+    color: #E4EAEA;
+}
+
+.theme_cloudy .slotDeg {
+    color: #5C86B1;
+}
+
+.theme_cloudy .futureSlot {
+    border: 1px solid #123440;
+
+}
+
+.theme_cloudy .futureSlotHeading {
+    color: #A7B1BC;
+}
+
+.theme_cloudy .CloudStatus {
+    color: #65758D;
+}
+
+.theme_cloudy .futureSlot:hover {
+ 
+    background-color: rgba(144, 155, 172, 0.3);
+    border: 1px solid #182D50;
+    box-shadow: 0px 0px 8px #CED5DB;
+}
+
+.theme_cloudy .max,
+.theme_cloudy .min {
+    color: #9fadc0;
+}
+
+.theme_cloudy .hum {
+    color: #2d3a49;
+}
+
+.theme_cloudy .rightFB {
+    background-color: rgba(81, 101, 133, 0.3);
+    box-shadow: 0px 0px 8px #8092a1;
+    border: 1px solid #4d688f;
+}
+
+.theme_cloudy #astroheading {
+    color: #182D50;
+}
+
+.theme_cloudy .DAY,
+.theme_cloudy .NIGHT {
+    color: #B1BAC1;
+}
+
+/* ==========================================*/
+/*  ---------------- SUNNY BG THEME ---------------- */
+/* ==========================================*/
+
+
+.theme_sunny {
+    background-image: url(assets/clear.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_sunny .container {
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #A0B5C6;
+    background: linear-gradient(to left, #7F9DB7, #315f74, #0d2d3b);
+    border: 1px solid #4d688f;
+    box-shadow: 0px 0px 8px #CED5DB;
+}
+
+.theme_sunny .cityData {
+    color: #D5D5DF;
+}
+
+.theme_sunny input {
+    border: none;
+    box-shadow: 0px 0px 5px #CDD6DF;
+    color: #E3E3ED;
+}
+
+.theme_sunny #btn {
+    box-shadow: 0px 0px 3px #CDD6DF;
+}
+
+.theme_sunny .main {
+    border: 1px solid #4d688f;
+    box-shadow: 0px 0px 8px #CED5DB;
+    background-image: url(assets/clear.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_sunny .left {
+    color: #397A98;
+
+}
+
+.theme_sunny #lat,
+.theme_sunny #lon {
+    box-shadow: 0px 0px 20px #022938;
+    color: #2E718C;
+}
+
+.theme_sunny .right {
+    box-shadow: 0px 0px 20px #022938;
+    color: #98ABC4;
+}
+
+.theme_sunny .footerTop {
+    background-color: rgba(80, 106, 93, 0.3);
+    border: 1px solid #4d688f;
+    box-shadow: 0px 0px 7px #CED5DB;
+
+}
+
+.theme_sunny .slot:hover {
+    border: 1px solid #42645d;
+    box-shadow: 0px 0px 8px #70837F;
+    transform: scale(0.9, 0.9);
+}
+
+.theme_sunny .slotheading {
+    color: #598315;
+}
+
+.theme_sunny .slotDeg {
+    color: #172b11;
+}
+
+.theme_sunny .futureSlot {
+    border: 1px solid #256A83;
+
+}
+
+.theme_sunny .futureSlotHeading {
+    color: #A8B1C6;
+}
+
+.theme_sunny .CloudStatus {
+    color: #8095b4;
+}
+
+.theme_sunny .futureSlot:hover {
+    background-color: rgba(27, 62, 75, 0.3);
+    border: 1px solid #256A83;
+    box-shadow: 0px 0px 8px #A8B1C6;
+}
+
+.theme_sunny .max,
+.theme_sunny .min {
+    color: #103541;
+}
+
+.theme_sunny .hum {
+    color: #273342;
+}
+
+.theme_sunny .rightFB {
+    background-color: rgba(37, 106, 131, 0.3);
+    box-shadow: 0px 0px 8px #B1BAC1;
+    border: 1px solid #4d688f;
+}
+
+.theme_sunny #astroheading {
+    color: #000602;
+}
+
+.theme_sunny .DAY,
+.theme_sunny .NIGHT {
+    color: #B1BAC1;
+}
+
+/* ==========================================*/
+/*  ---------------- RAINY BG THEME ---------------- */
+/* ==========================================*/
+
+
+.theme_rainy {
+    background-image: url(assets/rainy5.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_rainy .container {
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 8px #A0B5C6;
+    border: 1px solid #A0B5C6; */
+    /* background: linear-gradient(to left, #323d42, #2b373d, #0b0c0c); */
+    border: 1px solid #27311B;
+    box-shadow: 0px 0px 8px #8B9590;
+}
+
+.theme_rainy .cityData {
+    color: #909996;
+}
+
+.theme_rainy input {
+    border: none;
+    box-shadow: 0px 0px 5px #b6b9b9;
+    color: #E3E3ED;
+}
+
+.theme_rainy #btn {
+    box-shadow: 0px 0px 3px #CDD6DF;
+}
+
+.theme_rainy .main {
+    border: 1px solid #27311B;
+    box-shadow: 0px 0px 8px #8B9590;
+    background-image: url(assets/rainy2.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.theme_rainy .left {
+    color: #b6b9b9;
+
+}
+
+.theme_rainy #lat,
+.theme_rainy #lon {
+    box-shadow: 0px 0px 20px #b6b9b9;
+    color: #b6b9b9;
+}
+
+.theme_rainy .right {
+    box-shadow: 0px 0px 20px #6F775A;
+    color: #6F775A;
+}
+
+.theme_rainy .footerTop {
+    background-color: rgba(14, 54, 68, 0.2);
+    border: 1px solid #27311B;
+    box-shadow: 0px 0px 8px #8B9590;
+
+}
+
+.theme_rainy .slot:hover {
+    border: 1px solid #42645d;
+    box-shadow: 0px 0px 8px #9AA19E;
+    transform: scale(0.9, 0.9);
+}
+
+.theme_rainy .slotheading {
+    color: #717c77;
+}
+
+.theme_rainy .slotDeg {
+    color: #626A50;
+}
+
+.theme_rainy .futureSlot {
+    border: 1px solid #242C1E;
+
+}
+
+.theme_rainy .futureSlotHeading {
+    color: #808383;
+}
+
+.theme_rainy .CloudStatus {
+    color: #616969;
+}
+
+.theme_rainy .futureSlot:hover {
+    background-color: rgba(37, 106, 131, 0.3);
+    border: 1px solid #256A83;
+    box-shadow: 0px 0px 8px #A8B1C6;
+}
+
+.theme_rainy .max,
+.theme_rainy .min {
+    color: #86918C;
+}
+
+.theme_rainy .hum {
+    color: #506465;
+}
+
+.theme_rainy .rightFB {
+    border: 1px solid #27311B;
+    background-color: rgba(14, 54, 68, 0.2);
+    box-shadow: 0px 0px 5px #8B9590;
+}
+
+.theme_rainy #astroheading {
+    color: #000602;
+}
+
+.theme_rainy .DAY,
+.theme_rainy .NIGHT {
+    color: #B1BAC1;
 }
