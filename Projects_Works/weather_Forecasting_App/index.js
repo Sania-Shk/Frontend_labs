@@ -228,7 +228,11 @@ function bgTheme(weatherTheme) {
     return "theme_sunny";
   } else if (Theme.includes("cloudy") || Theme.includes("overcast")) {
     return "theme_cloudy";
-  } else if (Theme.includes("mist") || Theme.includes("fog")) {
+  } else if (
+    Theme.includes("mist") ||
+    Theme.includes("fog") ||
+    Theme.includes("smoky")
+  ) {
     return "theme_foggy";
   } else if (
     Theme.includes("rain") ||

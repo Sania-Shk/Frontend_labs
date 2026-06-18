@@ -199,6 +199,24 @@ input {
     border: 2px solid blue;
     grid-area: subMain;
     background-color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 7px;
+
+}
+
+.smTop {
+    border: 2px solid red;
+    
+}
+
+.smMiddle {
+    border: 2px solid blueviolet;
+}
+
+.smBottom {
+    border: 2px solid green
 }
 
 /* -----------------------FOOTER----------------------- */
@@ -705,7 +723,7 @@ input {
 }
 
 .theme_cloudy .futureSlot:hover {
- 
+
     background-color: rgba(144, 155, 172, 0.3);
     border: 1px solid #182D50;
     box-shadow: 0px 0px 8px #CED5DB;

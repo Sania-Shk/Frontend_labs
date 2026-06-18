@@ -6,6 +6,8 @@
     <title>Weather Forecasting App</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="font.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    // script link for chartjs
   </head>
   <body>
     <div class="container">
@@ -25,7 +27,7 @@
         </div>
 
         <div class="searchBar">
-          <input type="text" placeholder="Search Location" id="location" />
+          <input type="text" placeholder="Search Country" id="location" />
           <button id="btn">
             <img src="assets/search.svg" alt="search" />
           </button>
@@ -34,12 +36,12 @@
 
       <main class="main">
         <div class="left">
-          <h2 id="degree">18°</h2>
-          <h2 id="weather">Stormy</h2>
+          <h2 id="degree">0°</h2>
+          <h2 id="weather">Weather ??</h2>
 
           <div class="tude">
-            <h3 id="lat">lat : 29°</h3>
-            <h3 id="lon">lon : 12°</h3>
+            <h3 id="lat">lat : 0°</h3>
+            <h3 id="lon">lon : 0°</h3>
           </div>
         </div>
 
@@ -51,7 +53,19 @@
         </div>
       </main>
 
-      <submain class="subMain">submain</submain>
+      <!-- ------------// SIDE MAIN //------------ -->
+      <submain class="subMain">
+        <div class="smTop">
+          top {current chart}
+          <h4 id="currentHead">Live Condition</h4>
+          <div class="live">
+            <caption id="liveChart"></caption>
+          </div>
+          hart
+        </div>
+        <div class="smMiddle">middle {recent history}</div>
+        <div class="smBottom">bottom {forecast graph}</div>
+      </submain>
 
       <!-- ------------// FOOTER //------------ -->
       <footer class="footer">
@@ -64,7 +78,7 @@
               class="clouds"
               id="nowIcon"
             />
-            <h4 id="currentDeg" class="slotDeg">18</h4>
+            <h4 id="currentDeg" class="slotDeg">0°C</h4>
           </div>
 
           <div class="slot">
@@ -75,7 +89,7 @@
               class="clouds"
               id="morningIcon"
             />
-            <h4 id="morningDeg" class="slotDeg">18</h4>
+            <h4 id="morningDeg" class="slotDeg">0°C</h4>
           </div>
 
           <div class="slot">
@@ -86,7 +100,7 @@
               class="clouds"
               id="noonIcon"
             />
-            <h4 id="noonDeg" class="slotDeg">18</h4>
+            <h4 id="noonDeg" class="slotDeg">0°C</h4>
           </div>
 
           <div class="slot">
@@ -97,7 +111,7 @@
               class="clouds"
               id="eveningIcon"
             />
-            <h4 id="eveningDeg" class="slotDeg">18</h4>
+            <h4 id="eveningDeg" class="slotDeg">0°C</h4>
           </div>
 
           <div class="slot">
@@ -108,7 +122,7 @@
               class="clouds"
               id="nightIcon"
             />
-            <h4 id="nightDeg" class="slotDeg">18</h4>
+            <h4 id="nightDeg" class="slotDeg">0°C</h4>
           </div>
 
           <div class="slot">
@@ -119,7 +133,7 @@
               class="clouds"
               id="slot6Icon"
             />
-            <h4 id="slot6Deg" class="slotDeg">18</h4>
+            <h4 id="slot6Deg" class="slotDeg">0°C</h4>
           </div>
 
           <div class="slot">
@@ -130,7 +144,7 @@
               class="clouds"
               id="slot7Icon"
             />
-            <h4 id="slot7Deg" class="slotDeg">18</h4>
+            <h4 id="slot7Deg" class="slotDeg">0°C</h4>
           </div>
 
           <div class="slot">
@@ -141,7 +155,7 @@
               class="clouds"
               id="slot8Icon"
             />
-            <h4 id="slot8Deg" class="slotDeg">18</h4>
+            <h4 id="slot8Deg" class="slotDeg">0°C</h4>
           </div>
         </div>
 
@@ -155,10 +169,10 @@
                 class="futureSlotclouds"
                 id="tdy"
               />
-              <h4 id="todayCloudStatus" class="CloudStatus">sunny</h4>
-              <p id="tdyHum" class="hum">12</p>
-              <p id="tdyMin" class="min">34</p>
-              <p id="tdyMax" class="max">45</p>
+              <h4 id="todayCloudStatus" class="CloudStatus">--</h4>
+              <p id="tdyHum" class="hum">H : 0%</p>
+              <p id="tdyMin" class="min">Mn : 0°C</p>
+              <p id="tdyMax" class="max">Mx : 0°C</p>
             </div>
 
             <!-- =--------------= -->
@@ -169,13 +183,12 @@
                 src="assets/defaultCloud.svg"
                 alt="img"
                 class="futureSlotclouds"
-                ;
                 id="tmrw"
               />
-              <h4 id="tmrwCloudStatus" class="CloudStatus">rainy</h4>
-              <p id="tmrwHum" class="hum">12</p>
-              <p id="tmrwMin" class="min">34</p>
-              <p id="tmrwMax" class="max">45</p>
+              <h4 id="tmrwCloudStatus" class="CloudStatus">--</h4>
+              <p id="tmrwHum" class="hum">H : 0%</p>
+              <p id="tmrwMin" class="min">Mn : 0°C</p>
+              <p id="tmrwMax" class="max">Mx : 0°C</p>
             </div>
 
             <!-- =--------------= -->
@@ -190,10 +203,10 @@
                 class="futureSlotclouds"
                 id="after_tmrw"
               />
-              <h4 id="after_tmrwCloudStatus" class="CloudStatus">stormy</h4>
-              <p id="after_tmrwHum" class="hum">21</p>
-              <p id="after_tmrwMin" class="min">34</p>
-              <p id="after_tmrwMax" class="max">45</p>
+              <h4 id="after_tmrwCloudStatus" class="CloudStatus">--</h4>
+              <p id="after_tmrwHum" class="hum">H : 0%</p>
+              <p id="after_tmrwMin" class="min">Mn : 0°C</p>
+              <p id="after_tmrwMax" class="max">Mx : 0°C</p>
             </div>
           </div>
           <div class="rightFB">
@@ -274,6 +287,9 @@
         </div>
       </footer>
     </div>
+    <script>
+      // Bar-graph code structure
+    </script>
 
     <script src="index.js"></script>
   </body>
