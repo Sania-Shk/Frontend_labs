@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="font.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    // script link for chartjs
+    <!--  script link for chartjs -->
   </head>
   <body>
     <div class="container">
@@ -56,12 +56,44 @@
       <!-- ------------// SIDE MAIN //------------ -->
       <submain class="subMain">
         <div class="smTop">
-          top {current chart}
-          <h4 id="currentHead">Live Condition</h4>
-          <div class="live">
-            <caption id="liveChart"></caption>
+          <div class="topInfo">
+            <h4 id="currentHead">Live Condition</h4>
+
+            <div class="live">
+              <img src="assets/loading.gif" class="loading" />
+              <canvas id="graphCanva" style="display: none"></canvas>
+            </div>
           </div>
-          hart
+          <div class="sepline"></div>
+          <div class="bottomInfo">
+            <div class="humidity">
+              <img src="assets/humidity.png" alt="#" />
+              <div class="section">
+                <div id="Deg">12%</div>
+                <div id="Head">humidity</div>
+              </div>
+            </div>
+
+            <div class="versepline">|</div>
+
+            <div class="wind">
+              <img src="assets/wind.png" alt="#" />
+              <div class="section">
+                <div id="Deg">13%</div>
+                <div id="Head">Wind</div>
+              </div>
+            </div>
+
+            <div class="versepline">|</div>
+
+            <div class="pressure">
+              <img src="assets/pressure.png" alt="#" />
+              <div class="section">
+                <div id="Deg">14%</div>
+                <div id="Head">Pressure</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="smMiddle">middle {recent history}</div>
         <div class="smBottom">bottom {forecast graph}</div>
@@ -288,9 +320,55 @@
       </footer>
     </div>
     <script>
-      // Bar-graph code structure
-    </script>
+      // let dummyChart = document
+      //   .querySelector("#dummyGraphCanva")
+      //   .getContext("2d");
+      // let dummyContext = new Chart(dummyChart, {
+      //   type: "bar",
+      //   data: {
+      //     labels: ["PM", "PM", "PM", "PM"],
+      //     datasets: [
+      //       {
+      //         type: "line",
+      //         label: "Chance of Rain%",
+      //         data: [10, 20, 30, 40],
+      //         borderColor: "rgba(142, 142, 147, 1)",
+      //         borderWidth: 3,
+      //         pointBackgroundColor: "rgba(142, 142, 147, 1)",
+      //         tension: 0.6,
+      //       },
 
+      //       {
+      //         type: "line",
+      //         label: "Chance of Cloud%",
+      //         data: [35, 2, 42, 20],
+      //         borderColor: "rgb(180, 147, 199)",
+      //         borderWidth: 3,
+      //         pointBackgroundColor: "rgb(56, 6, 39)",
+      //         tension: 0.5,
+      //       },
+      //     ],
+      //   },
+
+      //   option: {
+      //     responsive: true,
+      //     scales: {
+      //       y: {
+      //         min: 2,
+      //         ticks: {
+      //           stepSize: 2,
+      //           color: "red",
+      //         },
+      //       },
+      //     },
+      //     plugin: {
+      //       legend: { position: top },
+      //     },
+      //   },
+      // });
+
+      // // dummyContext.destroy();
+    </script>
     <script src="index.js"></script>
   </body>
 </html>

@@ -17,6 +17,10 @@ let degree = document.querySelector("#degree");
 let lat = document.querySelector("#lat");
 let lon = document.querySelector("#lon");
 
+// ---------------- SIDE MAIN ----------------
+let loading = document.querySelector(".loading");
+let context = null;
+
 // ---------------- FOOTER TOP SEC ----------------
 
 // -------------- FT: Time --------------
@@ -47,14 +51,16 @@ let tdyHum = document.querySelector("#tdyHum");
 let todayCloudStatus = document.querySelector("#todayCloudStatus");
 let tdyMin = document.querySelector("#tdyMin");
 let tdyMax = document.querySelector("#tdyMax");
-//-------------
+
+// -------------
 let tomorrowSlot = document.querySelector("#tomorrowSlot");
 let tmrw = document.querySelector("#tmrw");
 let tmrwHum = document.querySelector("#tmrwHum");
 let tmrwCloudStatus = document.querySelector("#tmrwCloudStatus");
 let tmrwMin = document.querySelector("#tmrwMin");
 let tmrwMax = document.querySelector("#tmrwMax");
-//-------------
+
+// -------------
 let aftertomorrowSlot = document.querySelector("#AftertomorrowSlot");
 let after_tmrw = document.querySelector("#after_tmrw");
 let after_tmrwHum = document.querySelector("#after_tmrwHum");
@@ -62,7 +68,7 @@ let after_tmrwCloudStatus = document.querySelector("#after_tmrwCloudStatus");
 let after_tmrwMin = document.querySelector("#after_tmrwMin");
 let after_tmrwMax = document.querySelector("#after_tmrwMax");
 
-//---------------- ASTRO ----------------
+// ---------------- ASTRO ----------------
 // --- SUNRISE ---
 let sunriseTxt = document.querySelector("#sunriseTxt");
 let sunriseImg = document.querySelector("#sunriseImg");
@@ -221,7 +227,6 @@ function todayAstro(astroData) {
 }
 
 // ---------------- WEATHER THEME FUNCTION ----------------
-
 function bgTheme(weatherTheme) {
   let Theme = weatherTheme.toLowerCase();
   if (Theme.includes("clear") || Theme.includes("sunny")) {
@@ -247,7 +252,6 @@ function bgTheme(weatherTheme) {
 }
 
 // ---------------- WEATHER THEME QUOTE FUNCTION ----------------
-
 let quote = document.querySelector("#quote");
 
 function weatherQuote() {
@@ -268,6 +272,127 @@ function weatherQuote() {
     quote.textContent =
       "🌫️ The world disappears into a thick mist, erasing the streets until everything feels like a quiet dream. 🌫️";
   }
+}
+
+// ---------------- WEATHER LIVE GRAPH FUNCTION ----------------
+function livechart(currentForecastData, currentTime) {
+  let liveForecastData = currentForecastData.hour;
+  let currentHours = currentTime.localtime;
+  let hours = new Date(currentHours).getHours();
+  let format = { hour: "numeric", hour12: true };
+  let labelsArray = [];
+  let WindDataArray = [];
+  let HeatDataArray = [];
+  let DewDataArray = [];
+
+  for (let index = 0; index < 15; index += 3) {
+    let targetdata = liveForecastData[Math.min(hours + index, 23)];
+    let exactTime = new Date(targetdata.time);
+    let formatize = exactTime.toLocaleTimeString("en-In", format).toLowerCase();
+
+    WindDataArray.push(targetdata.windchill_c);
+    HeatDataArray.push(targetdata.heatindex_c);
+    DewDataArray.push(targetdata.dewpoint_c);
+    labelsArray.push(formatize);
+  }
+
+  loading.style.display = "none";
+  document.querySelector("#graphCanva").style.display = "block";
+
+  if (context != null) {
+    context.destroy();
+  }
+
+  let currentChart = document.querySelector("#graphCanva").getContext("2d");
+
+  context = new Chart(currentChart, {
+    data: {
+      labels: labelsArray,
+      datasets: [
+        {
+          type: "line",
+          label: "🌬️ Wind Chill",
+          data: WindDataArray,
+          borderColor: "#116266",
+          borderWidth: 4,
+          backgroundColor: "rgba(0, 243, 255, 0.02)",
+          pointBackgroundColor: "#00f3ff",
+          pointHoverBackgroundColor: "#ffffff",
+          pointRadius: 4,
+          tension: 0.7,
+        },
+        {
+          type: "bar",
+          label: "🔥 Heat Index",
+          data: HeatDataArray,
+          borderColor: "#6b4747",
+          borderWidth: 3,
+          backgroundColor: "rgba(92, 31, 31, 0.5)",
+          borderRadius: 4,
+          pointRadius: 4,
+        },
+        {
+          type: "bar",
+          label: "💧 Dew Point",
+          data: DewDataArray,
+          borderColor: "rgb(116, 117, 91)",
+          borderWidth: 2,
+          backgroundColor: "rgba(75, 104, 64, 0.5)",
+          borderRadius: 4,
+        },
+      ],
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          // position: "top",
+          // labels: {
+          //   color: "#5f5757",
+          //   font: {
+          //     size: 14,
+          //     weight: "600",
+          //   },
+          // },
+
+          display: false,
+        },
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: "#DCC3AA",
+            // color: "rgba(173, 146, 146, 0.85)",
+            font: {
+              size: 12,
+              weight: "500",
+            },
+          },
+          grid: {
+            // color: "rgb(131, 126, 126)",
+            display: false,
+          },
+        },
+        y: {
+          min: 0,
+          ticks: {
+            color: "#FFF5E5",
+            // color: "rgba(192, 185, 185, 0.85)",
+            font: {
+              size: 12,
+              weight: "500",
+            },
+          },
+          grid: {
+            // color: "rgb(165, 147, 147)",
+            display: false,
+          },
+        },
+      },
+    },
+  });
 }
 
 // ---------------- FETCH DATA FUNCTION ----------------
@@ -293,12 +418,12 @@ async function getdata() {
   todayAstro(response.forecast.forecastday[0].astro);
   document.body.className = bgTheme(response.current.condition.text);
   weatherQuote();
+  livechart(response.forecast.forecastday[0], response.location);
 }
 
 // ==========================================
 // 3. EVENT LISTENERS
 // ==========================================
-
 btn.addEventListener("click", function () {
   getdata();
   data.value = " ";

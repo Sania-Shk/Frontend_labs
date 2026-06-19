@@ -22,7 +22,7 @@ body {
 
 .container {
 
-    width: 65%;
+    width: 75%;
     height: fit-content;
     display: grid;
     grid-template-areas: 'nav nav'
@@ -30,7 +30,7 @@ body {
         'footer  subMain';
 
     grid-template-rows: 80px 200px 1fr;
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: 1fr 350px;
     gap: 20px;
     padding: 10px 20px;
     border-radius: 10px;
@@ -198,18 +198,102 @@ input {
 .subMain {
     border: 2px solid blue;
     grid-area: subMain;
-    background-color: beige;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 15px 7px;
-
 }
 
 .smTop {
-    border: 2px solid red;
-    
+    border: 1px solid #C58D9F;
+    box-shadow: 0px 0px 8px #C58D9F;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-radius: 10px;
+    padding: 8px 3px;
+
 }
+
+.topInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#currentHead {
+    font-family: sentence;
+    font-size: 16.5px;
+    color: #af8b96;
+}
+
+.live {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 5px;
+}
+
+.loading {
+    width: 167px;
+    height: 150px;
+}
+
+#graphCanva {
+    border: 2px solid;
+}
+
+.bottomInfo {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 5px;
+    align-items: center;
+}
+
+.humidity,
+.wind,
+.pressure {
+    font-family: digit;
+    font-size: 17px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Deg {
+    font-family: digit;
+    font-size: 18px;
+    color: #F3F4F4;
+}
+
+#Head {
+    font-family: 'sentence';
+    font-size: 12px;
+    font-weight: 600;
+    color: #BFC6C4;
+}
+
+.versepline {
+    color: #BFC6C4;
+    font-size: 30px;
+}
+
+.sepline {
+    border: 1px solid #BFC6C4;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px #BFCC;
+    width: 18rem;
+    margin: auto auto;
+}
+
 
 .smMiddle {
     border: 2px solid blueviolet;
