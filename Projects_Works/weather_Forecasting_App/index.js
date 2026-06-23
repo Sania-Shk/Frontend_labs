@@ -20,6 +20,12 @@ let lon = document.querySelector("#lon");
 // ---------------- SIDE MAIN ----------------
 let loading = document.querySelector(".loading");
 let context = null;
+let sm_HumiDeg = document.querySelector("#sm_HumiDeg");
+let sm_WindDeg = document.querySelector("#sm_WindDeg");
+let sm_PressureDeg = document.querySelector("#sm_PressureDeg");
+let smBottom = document.querySelector(".smBottom");
+let livemap = null;
+let clickPoint;
 
 // ---------------- FOOTER TOP SEC ----------------
 
@@ -88,6 +94,14 @@ let moonsetImg = document.querySelector("#moonsetImg");
 // --- MOONPHASE ---
 let moonphaseTxt = document.querySelector("#moonphaseTxt");
 let moonphaseImg = document.querySelector("#moonphaseImg");
+
+// ---------------- ERROR ----------------
+let errorhead = document.querySelector(".errorhead");
+let errorP1 = document.querySelector("#errorP1");
+let errorP2 = document.querySelector("#errorP2");
+let errorbtn = document.querySelector("#errorbtn");
+let errorContainer = document.querySelector(".errorContainer");
+let container = document.querySelector(".container");
 
 // ==========================================
 // 2. FUNCTIONS & LOGIC
@@ -275,7 +289,7 @@ function weatherQuote() {
 }
 
 // ---------------- WEATHER LIVE GRAPH FUNCTION ----------------
-function livechart(currentForecastData, currentTime) {
+function livechart(currentForecastData, currentTime, currentPercentage) {
   let liveForecastData = currentForecastData.hour;
   let currentHours = currentTime.localtime;
   let hours = new Date(currentHours).getHours();
@@ -310,7 +324,7 @@ function livechart(currentForecastData, currentTime) {
       labels: labelsArray,
       datasets: [
         {
-          type: "line",
+          type: "bar",
           label: "🌬️ Wind Chill",
           data: WindDataArray,
           borderColor: "#116266",
@@ -322,7 +336,7 @@ function livechart(currentForecastData, currentTime) {
           tension: 0.7,
         },
         {
-          type: "bar",
+          type: "line",
           label: "🔥 Heat Index",
           data: HeatDataArray,
           borderColor: "#6b4747",
@@ -330,6 +344,7 @@ function livechart(currentForecastData, currentTime) {
           backgroundColor: "rgba(92, 31, 31, 0.5)",
           borderRadius: 4,
           pointRadius: 4,
+          tension: 0.7,
         },
         {
           type: "bar",
@@ -393,6 +408,49 @@ function livechart(currentForecastData, currentTime) {
       },
     },
   });
+
+  // ------- CURRENT  :HUMIDITY , WIND , PRESSURE  -------
+  sm_HumiDeg.textContent = `${currentPercentage.humidity}%`;
+  sm_WindDeg.textContent = `${currentPercentage.wind_degree}%`;
+  sm_PressureDeg.textContent = `${currentPercentage.pressure_in}%`;
+}
+
+// ---------------- WEATHER LIVE MAP FUNCTION ----------------
+function initMap(liveLocation) {
+  let liveLat = liveLocation.lat;
+  let liveLon = liveLocation.lon;
+
+  document.querySelector(".maploading").style.display = "none";
+
+  if (livemap != null) {
+    livemap.remove();
+  }
+
+  livemap = L.map(smBottom).setView([liveLat, liveLon], 12);
+  L.tileLayer(
+    "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+    {
+      minZoom: 0,
+      maxZoom: 20,
+      attribution: "© OpenStreetMap contributors",
+    },
+  ).addTo(livemap);
+
+  function onMapClick(e) {
+    let lat = e.latlng.lat.toFixed(2);
+    let lng = e.latlng.lng.toFixed(2);
+
+    if (clickPoint) {
+      livemap.removeLayer(clickPoint);
+    }
+
+    clickPoint = L.marker(e.latlng)
+      .bindPopup(`📍 Coordinates: ${lat}, ${lng}`)
+      .addTo(livemap)
+      .openPopup();
+  }
+
+  livemap.on("click", onMapClick);
 }
 
 // ---------------- FETCH DATA FUNCTION ----------------
@@ -401,24 +459,50 @@ async function getdata() {
   let apikey = "1c595c024b6f4ceb834152010261505";
   let apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apikey}&q=${value}&days=7`;
 
-  const fetchData = await fetch(apiUrl);
-  const response = await fetchData.json();
+  try {
+    const fetchData = await fetch(apiUrl);
+    const response = await fetchData.json();
 
-  city.textContent = response.location.country;
-  state.textContent = response.location.region;
-  weather.textContent = response.current.condition.text;
-  degree.textContent = `${response.current.temp_c}°`;
-  lat.textContent = `lat : ${response.location.lat}°`;
-  lon.textContent = `lon : ${response.location.lon}°`;
+    if (!fetchData.ok) {
+      throw new Error(`${value} not found`);
+    } else {
+      city.textContent = response.location.name;
+      state.textContent = response.location.country;
+      weather.textContent = response.current.condition.text;
+      degree.textContent = `${response.current.temp_c}°`;
+      lat.textContent = `lat : ${response.location.lat}°`;
+      lon.textContent = `lon : ${response.location.lon}°`;
 
-  timeline(response.forecast.forecastday, response.location, response.current);
-  todayForcast(response.forecast.forecastday[0]);
-  tmrwForcast(response.forecast.forecastday[1]);
-  after_tmrwForcast(response.forecast.forecastday[2]);
-  todayAstro(response.forecast.forecastday[0].astro);
-  document.body.className = bgTheme(response.current.condition.text);
-  weatherQuote();
-  livechart(response.forecast.forecastday[0], response.location);
+      timeline(
+        response.forecast.forecastday,
+        response.location,
+        response.current,
+      );
+      todayForcast(response.forecast.forecastday[0]);
+      tmrwForcast(response.forecast.forecastday[1]);
+      after_tmrwForcast(response.forecast.forecastday[2]);
+      todayAstro(response.forecast.forecastday[0].astro);
+      document.body.className = bgTheme(response.current.condition.text);
+      weatherQuote();
+      livechart(
+        response.forecast.forecastday[0],
+        response.location,
+        response.current,
+      );
+
+      initMap(response.location);
+    }
+  } catch (error) {
+    errorContainer.style.display = "flex";
+    errorContainer.style.zIndex = "2";
+    container.style.zIndex = "1";
+    container.style.filter = "blur(2px)";
+
+    errorhead.textContent = "404";
+    errorP1.textContent = error;
+    errorP2.textContent =
+      "We couldn't pinpoint that destination. Please double-check the address or head back to safety.";
+  }
 }
 
 // ==========================================
@@ -428,3 +512,7 @@ btn.addEventListener("click", function () {
   getdata();
   data.value = " ";
 });
+
+function refreshPage() {
+  window.location.reload();
+}

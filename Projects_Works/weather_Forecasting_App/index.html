@@ -6,8 +6,16 @@
     <title>Weather Forecasting App</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="font.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!--  script link for chartjs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--  leaflet link for live map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   </head>
   <body>
     <div class="container">
@@ -69,8 +77,8 @@
             <div class="humidity">
               <img src="assets/humidity.png" alt="#" />
               <div class="section">
-                <div id="Deg">12%</div>
-                <div id="Head">humidity</div>
+                <div id="sm_HumiDeg" class="Deg">12%</div>
+                <div class="Head">humidity</div>
               </div>
             </div>
 
@@ -79,8 +87,8 @@
             <div class="wind">
               <img src="assets/wind.png" alt="#" />
               <div class="section">
-                <div id="Deg">13%</div>
-                <div id="Head">Wind</div>
+                <div id="sm_WindDeg" class="Deg">13%</div>
+                <div class="Head">Wind</div>
               </div>
             </div>
 
@@ -89,14 +97,19 @@
             <div class="pressure">
               <img src="assets/pressure.png" alt="#" />
               <div class="section">
-                <div id="Deg">14%</div>
-                <div id="Head">Pressure</div>
+                <div id="sm_PressureDeg" class="Deg">14%</div>
+                <div class="Head">Pressure</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="smMiddle">middle {recent history}</div>
-        <div class="smBottom">bottom {forecast graph}</div>
+
+        <!-- ----- -->
+
+        <div class="smBottom">
+          <h4 id="currentHead">Live Map</h4>
+          <img src="assets/loading.gif" class="maploading" />
+        </div>
       </submain>
 
       <!-- ------------// FOOTER //------------ -->
@@ -319,56 +332,24 @@
         </div>
       </footer>
     </div>
-    <script>
-      // let dummyChart = document
-      //   .querySelector("#dummyGraphCanva")
-      //   .getContext("2d");
-      // let dummyContext = new Chart(dummyChart, {
-      //   type: "bar",
-      //   data: {
-      //     labels: ["PM", "PM", "PM", "PM"],
-      //     datasets: [
-      //       {
-      //         type: "line",
-      //         label: "Chance of Rain%",
-      //         data: [10, 20, 30, 40],
-      //         borderColor: "rgba(142, 142, 147, 1)",
-      //         borderWidth: 3,
-      //         pointBackgroundColor: "rgba(142, 142, 147, 1)",
-      //         tension: 0.6,
-      //       },
 
-      //       {
-      //         type: "line",
-      //         label: "Chance of Cloud%",
-      //         data: [35, 2, 42, 20],
-      //         borderColor: "rgb(180, 147, 199)",
-      //         borderWidth: 3,
-      //         pointBackgroundColor: "rgb(56, 6, 39)",
-      //         tension: 0.5,
-      //       },
-      //     ],
-      //   },
+    <div class="errorContainer">
+      <div class="blurcontainer">
+        <img src="assets/plug.png" class="errorpic" />
+      </div>
+      <div class="errortxt">
+        <h3 class="errorhead">404</h3>
+        <p class="errorpara" id="errorP1">Page not found</p>
+        <p class="errorpara" id="errorP2">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga,
+          beatae?
+        </p>
+        <button id="errorbtn" onclick="refreshPage()">
+          <img src="assets/refresh.svg" class="refreshbtn" />
+        </button>
+      </div>
+    </div>
 
-      //   option: {
-      //     responsive: true,
-      //     scales: {
-      //       y: {
-      //         min: 2,
-      //         ticks: {
-      //           stepSize: 2,
-      //           color: "red",
-      //         },
-      //       },
-      //     },
-      //     plugin: {
-      //       legend: { position: top },
-      //     },
-      //   },
-      // });
-
-      // // dummyContext.destroy();
-    </script>
     <script src="index.js"></script>
   </body>
 </html>

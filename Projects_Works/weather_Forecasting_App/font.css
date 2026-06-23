@@ -27,3 +27,8 @@
     font-family: digit;
     src: url(assets/Fonts/roboto-slab.regular.ttf);
 }
+
+@font-face {
+    font-family: number;
+    src: url(assets/Fonts/sf-digital-readout.heavy-oblique.ttf);
+}
