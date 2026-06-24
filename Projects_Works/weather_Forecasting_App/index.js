@@ -427,8 +427,9 @@ function initMap(liveLocation) {
   }
 
   livemap = L.map(smBottom).setView([liveLat, liveLon], 12);
+  let livemap_API_Key = "ecb230a6-d12f-4acf-9966-fac659c98a1d";
   L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+    `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${livemap_API_Key}`,
     {
       minZoom: 0,
       maxZoom: 20,
