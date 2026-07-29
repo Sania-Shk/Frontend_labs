@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ------------------HOME CONTAINER SECTION ------------------*/
+.homeContainer {
+    border: 2px solid;
+    background-color: rgb(190, 176, 158);
+    width: 79.9vw;
+    height: 99.9vh;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 30rem 1fr;
+    grid-template-areas:
+        'nav'
+        'main'
+        'footer'
+
+
+}
+
+/* ------------------HOME CONTAINER NAVBAR SECTION ------------------*/
+.homeContainernavbar {
+    border: 2px solid;
+    background-color: antiquewhite;
+    grid-area: nav;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 6em;
+    align-items: center;
+}
+
+.navlogo {
+    background-color: rgb(209, 183, 180);
+    width: 12rem;
+    height: 4rem;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.hrefLinks {
+    display: flex;
+    width: 45em;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.links {
+    padding: 5px 4px;
+}
+
+.links a {
+    text-decoration: none;
+    font-size: 25px;
+}
+
+/* ------------------HOME CONTAINER MAIN SECTION ------------------*/
+.homeContainermain {
+    border: 2px solid;
+    background-color: #94b7b5;
+    grid-area: main;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftsection {
+    border: 2px solid;
+    background-color: pink;
+    width: 60%;
+}
+
+.rightsection {
+    border: 2px solid;
+    background-color: plum;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px 0px;
+    align-items: center;
+    gap: 3%;
+}
+
+.righttop {
+    background-color: peachpuff;
+    width: 66%;
+    height: 50%;
+}
+
+.rightbottom {
+    background-color: rgb(196, 172, 151);
+    width: 66%;
+    height: 50%;
+}
+
+/* ------------------HOME CONTAINER FOOTER SECTION ------------------*/
+.homeContainerfooter {
+    border: 2px solid;
+    grid-area: footer;
+    background-color: #46697a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.footerheader {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.footerpillar {
+    border: 2px solid;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pillar {
+    background-color: #488373;
+    border: 2px solid;
+    width: 15em;
+    height: 19em;
+}
+
+#quotepillar {
+    height: 15.8em;
+}
+
+#cookingpillar {
+    width: 17.8em;
+}
+
+#feedingpillar {
+    height: 18em;
+}
+
+/* ------------------RECIPE DISPLAY SECTION ------------------*/
