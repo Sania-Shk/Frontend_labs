@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ================= BODY ================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    overflow-x: auto;
+}
+
+
+/* ================= MAIN CONTAINER ================= */
+
+.Pfcontainer {
+    border: 2px solid;
+    background: pink;
+
+    width: min(100%, 1000px);
+    min-height: 70vh;
+
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+
+/* ================= LEFT PANEL ================= */
+
+.left {
+    border: 2px solid green;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    background-color: #141C2F;
+}
+
+
+/* ================= INTRO ================= */
+
+.introSection {
+    height: 45%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+/* ================= PROFILE IMAGE ================= */
+
+.userprofile {
+    height: 70%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.profilePic {
+    border: 2px solid rgb(145, 152, 161);
+
+    padding: 5.5px;
+
+    width: 170px;
+    max-width: 80%;
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    background-color: #000;
+}
+
+
+/* ================= USER IDENTITY ================= */
+
+.useridentity {
+    padding-left: 32.5px;
+
+    min-width: 0;
+}
+
+
+#userName {
+    font-family:
+        "Mona Sans VF",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-weight: 600;
+    line-height: 30px;
+    font-size: 24px;
+
+    color: rgb(240, 246, 252);
+
+    margin-bottom: 2.3px;
+
+    overflow-wrap: break-word;
+}
+
+
+#userId {
+    font-family:
+        "Mona Sans VF",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-weight: 300;
+    line-height: 24px;
+    font-size: 20px;
+
+    color: rgb(145, 152, 161);
+
+    overflow-wrap: break-word;
+}
+
+
+/* ================= DETAILS ================= */
+
+.detailSection {
+    height: 50%;
+
+    min-width: 0;
+}
+
+
+#userBio {
+    height: fit-content;
+
+    padding-left: 32.5px;
+    padding-right: 20px;
+
+    font-family:
+        "Mona Sans VF",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: rgb(240, 246, 252);
+
+    overflow-wrap: break-word;
+}
+
+
+/* ================= FOLLOWERS ================= */
+
+.userfrnds {
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 32.5px;
+
+    justify-content: space-between;
+
+    font-family:
+        "Mona Sans VF",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    max-width: 100%;
+}
+
+
+.group {
+    margin-right: 1.5px;
+}
+
+
+#follower,
+#following {
+    color: rgb(68, 147, 248);
+}
+
+
+#num {
+    font-weight: 500;
+    font-size: 16px;
+
+    color: rgb(240, 246, 252);
+}
+
+
+/* ================= RIGHT PANEL ================= */
+
+.right {
+    border: 2px solid blue;
+
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .Pfcontainer {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .left {
+        min-height: 500px;
+    }
+
+    .right {
+        min-height: 400px;
+    }
+
+    .useridentity {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #userBio {
+        padding-left: 20px;
+    }
+
+    .userfrnds {
+        padding: 20px;
+    }
+
+}
