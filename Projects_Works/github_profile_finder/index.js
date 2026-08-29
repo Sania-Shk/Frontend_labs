@@ -21,11 +21,11 @@ async function getuserporfile() {
   const repo_response = await repodata.json();
 
   userDetail(respone);
-  window.location.href = "profil.html";
+  return console.log(repo_response);
 }
 
 function userDetail(info) {
-  let userInfo = info.value;
+  let userInfo = info;
 
   // userName.textContent = userInfo.name;
   userId.textContent = userInfo.login;

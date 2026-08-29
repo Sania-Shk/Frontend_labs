@@ -23,11 +23,9 @@ body {
 
 .Pfcontainer {
     border: 2px solid;
-    background: pink;
-
+    background: linear-gradient(to left, #141C2F, #1F2A48);
     width: min(100%, 1000px);
     min-height: 90vh;
-
     display: grid;
     grid-template-columns: 300px 1fr;
 }
@@ -224,11 +222,111 @@ body {
 /* ================= RIGHT PANEL ================= */
 
 .right {
-  background-color: #1F2A48;
+    background-color: #1F2A48;
     min-width: 0;
     overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 15px;
 }
 
+.repoList {
+    border: 2px solid white;
+    width: 100%;
+    height: fit-content;
+    padding: 5.5px 10.5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10.5px;
+}
+
+.box {
+    border: 1px solid rgb(145, 152, 161);
+    padding: 16px 13px;
+    width: 90%;
+    height: 150px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.repohead {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+
+
+#repotitle {
+
+    font-family: "Mona Sans VF", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Backtick Fix", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: rgb(68, 147, 248)
+}
+
+.description {
+
+    font-family: "Mona Sans VF", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Backtick Fix", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgb(145, 152, 161)
+}
+
+.language {
+
+    font-family: "Mona Sans VF", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Backtick Fix", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgb(145, 152, 161)
+}
+
+.media {
+    border: 2px solid white;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mediachild_1 {
+    border: 2px solid white;
+    padding: 3.5px 4.5px;
+    /* display: flex;
+    align-items: center; */
+}
+
+.mediachild_2 {
+    border: 2px solid white;
+    padding: 3.5px 4.5px;
+    /* display: flex;
+    align-items: center; */
+}
+
+.locaton {
+    border: 2px solid white;
+}
+
+.twitter {
+    border: 2px solid white;
+}
+
+.email {
+    border: 2px solid white;
+}
+
+.webpage {
+    border: 2px solid white;
+}
 
 /* ================= MOBILE ================= */
 
