@@ -1,6 +1,12 @@
 let userinput = document.querySelector("#userprofile");
 let userbutton = document.querySelector("#btn");
 
+let userName = document.querySelector("#userName");
+let userId = document.querySelector("#userId");
+let userBio = document.querySelector("#userBio");
+let followernum = document.querySelector(".followernum");
+let followingnum = document.querySelector(".followingnum");
+
 userbutton.addEventListener("click", getuserporfile);
 
 async function getuserporfile() {
@@ -14,5 +20,16 @@ async function getuserporfile() {
   let repodata = await fetch(repourl);
   const repo_response = await repodata.json();
 
-  return console.log(respone, repo_response);
+  userDetail(respone);
+  window.location.href = "profil.html";
+}
+
+function userDetail(info) {
+  let userInfo = info.value;
+
+  // userName.textContent = userInfo.name;
+  userId.textContent = userInfo.login;
+  userBio.textContent = userInfo.bio;
+  followernum.textContent = userInfo.followers;
+  followingnum.textContent = userInfo.following;
 }

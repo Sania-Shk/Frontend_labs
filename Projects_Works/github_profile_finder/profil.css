@@ -26,7 +26,7 @@ body {
     background: pink;
 
     width: min(100%, 1000px);
-    min-height: 70vh;
+    min-height: 90vh;
 
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -36,12 +36,10 @@ body {
 /* ================= LEFT PANEL ================= */
 
 .left {
-    border: 2px solid green;
-
+    border: 2px solid #141C2F;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
     background-color: #141C2F;
 }
 
@@ -49,7 +47,7 @@ body {
 /* ================= INTRO ================= */
 
 .introSection {
-    height: 45%;
+    height: 48%;
 
     display: flex;
     flex-direction: column;
@@ -226,8 +224,7 @@ body {
 /* ================= RIGHT PANEL ================= */
 
 .right {
-    border: 2px solid blue;
-
+  background-color: #1F2A48;
     min-width: 0;
     overflow-wrap: break-word;
 }
