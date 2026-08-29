@@ -30,7 +30,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    border: 2px solid;
+    border: none;
 }
 
 #logo {
@@ -46,11 +46,11 @@ body {
 }
 
 .logoSection h2 {
-    font-size: larger;
+    font-size: 35px;
 }
 
 .searchSection {
-    border: 2px solid;
+    border: none;
     width: 55%;
     height: 12%;
     display: flex;
@@ -63,6 +63,7 @@ body {
     width: 30px;
     height: 30px;
     object-fit: cover;
+
 }
 
 .searchImg {
@@ -74,10 +75,10 @@ body {
 .seacrhId {
 
     display: flex;
-    width: 15rem;
+    width: 220px;
     justify-content: space-between;
     align-items: center;
-    gap: 1.2px;
+    padding: 2.5px 3.5px;
 }
 
 #userprofile {
@@ -85,11 +86,15 @@ body {
     background-color: transparent;
     color: white;
     padding: 7.5px 4.5px;
+
 }
 
 #btn {
-    border: 2px solid green;
+    border: 2px solid #1F2A49;
     width: 70px;
     height: 40px;
     padding: 2.5px 2.5px;
+    background-color: #0079FE;
+    border-radius: 5.5px;
+    color: #E0E2E6;
 }
