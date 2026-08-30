@@ -254,16 +254,18 @@ body {
 }
 
 .repohead {
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
 }
 
+.filelogo {
+    width: 20px;
+}
 
 
-#repotitle {
+.repotitle {
 
     font-family: "Mona Sans VF", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Backtick Fix", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-weight: 600;
@@ -278,7 +280,8 @@ body {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: rgb(145, 152, 161)
+    color: rgb(145, 152, 161);
+    overflow: hidden;
 }
 
 .language {
@@ -291,41 +294,85 @@ body {
 }
 
 .media {
-    border: 2px solid white;
-    width: 60%;
+
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 5.5px;
 }
 
 .mediachild_1 {
-    border: 2px solid white;
+
     padding: 3.5px 4.5px;
     /* display: flex;
     align-items: center; */
 }
 
 .mediachild_2 {
-    border: 2px solid white;
+
     padding: 3.5px 4.5px;
     /* display: flex;
     align-items: center; */
 }
 
-.locaton {
-    border: 2px solid white;
+.location {
+
+    padding: 5.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+
 }
 
 .twitter {
-    border: 2px solid white;
+
+    padding: 3.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .email {
-    border: 2px solid white;
+
+    padding: 3.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
 }
 
 .webpage {
-    border: 2px solid white;
+
+    padding: 3.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#Logo {
+    width: 20px;
+}
+
+.joindate {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* #joineddate {
+    border: 2px solid red;
+} */
+
+.joindate h3 {
+    color: #aaafbb;
+    font-family: "Mona Sans VF", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Backtick Fix", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+
 }
 
 /* ================= MOBILE ================= */
