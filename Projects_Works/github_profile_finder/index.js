@@ -13,15 +13,33 @@ let repoList = document.querySelector(".repoList");
 let totalrepo = document.querySelector("#totalRepo");
 let repolink = document.querySelector(".repolink");
 
-let userlocation = document.querySelector(".userlocation");
-let usertwitter = document.querySelector(".usertwitter");
-let useremail = document.querySelector(".useremail");
-let userblog = document.querySelector(".userblog");
+let profilePic = document.querySelector(".profilePic");
+let loading_img = document.querySelector(".loading_img");
+
+// 2 main container:
+let container = document.querySelector(".container");
+let PFcontainer = document.querySelector(".PFcontainer");
 
 // main function
 userbutton.addEventListener("click", (event) => {
   event.preventDefault();
+  // if (getuserporfile) { will fix later!
+  //   setTimeout(() => {
+  //     loading_img.style.visibility = "visible";
+  //     alert("User Found!");
+
+  //     if (container.style.visibility === "visible") {
+  //       container.style.visibility = "hidden";
+  //       PFcontainer.style.visibility = "visible";
+  //     }
+  //   }, 3000);
+  // }
+
   getuserporfile();
+  // if (container.style.visibility === "visible") {
+  //   container.style.visibility = "hidden";
+  //   PFcontainer.style.visibility = "visible";
+  // }
 
   return (userinput.value = "");
 });
@@ -39,7 +57,6 @@ async function getuserporfile() {
 
   userDetail(respone);
   userRepo(repo_response);
-  minorDetail(respone);
 }
 
 function userDetail(info) {
@@ -61,6 +78,9 @@ function userDetail(info) {
     "en-In",
     optionsIn,
   );
+
+  repolink.href = info.html_url; // github repository page
+  profilePic.src = info.avatar_url; // user github profile picture
 }
 
 function userRepo(RepoInfo) {
@@ -101,25 +121,4 @@ function userRepo(RepoInfo) {
   });
 
   totalrepo.textContent = `Repositories :  ${count}`;
-}
-
-function minorDetail(minorinfo) {
-  let userinfo = minorinfo;
-
-  repolink.textContent = userinfo.url;
-  userlocation.textContent = userinfo.location;
-
-  if (!usertwitter) {
-    usertwitter.textContent = "not available";
-  } else {
-    usertwitter.textContent = userinfo.twitter_username;
-  }
-
-  useremail.textContent = userinfo.email;
-
-  if (!userblog) {
-    userblog.textContent = "not available!";
-  } else {
-    userblog.textContent = userinfo.blog;
-  }
 }
