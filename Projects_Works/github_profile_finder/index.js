@@ -10,8 +10,21 @@ let followingnum = document.querySelector(".followingnum");
 let joinDate = document.querySelector("#joined");
 
 let repoList = document.querySelector(".repoList");
+let totalrepo = document.querySelector("#totalRepo");
+let repolink = document.querySelector(".repolink");
 
-userbutton.addEventListener("click", getuserporfile);
+let userlocation = document.querySelector(".userlocation");
+let usertwitter = document.querySelector(".usertwitter");
+let useremail = document.querySelector(".useremail");
+let userblog = document.querySelector(".userblog");
+
+// main function
+userbutton.addEventListener("click", (event) => {
+  event.preventDefault();
+  getuserporfile();
+
+  return (userinput.value = "");
+});
 
 async function getuserporfile() {
   console.log("working start");
@@ -26,6 +39,7 @@ async function getuserporfile() {
 
   userDetail(respone);
   userRepo(repo_response);
+  minorDetail(respone);
 }
 
 function userDetail(info) {
@@ -51,7 +65,8 @@ function userDetail(info) {
 
 function userRepo(RepoInfo) {
   let repos = RepoInfo;
-
+  let count = 0;
+  repoList.innerHTML = "";
   repos.forEach((element) => {
     repobox = document.createElement("div");
     repobox.className = "box";
@@ -82,5 +97,29 @@ function userRepo(RepoInfo) {
     repobox.appendChild(reposlanguage);
 
     repoList.appendChild(repobox);
+    count++;
   });
+
+  totalrepo.textContent = `Repositories :  ${count}`;
+}
+
+function minorDetail(minorinfo) {
+  let userinfo = minorinfo;
+
+  repolink.textContent = userinfo.url;
+  userlocation.textContent = userinfo.location;
+
+  if (!usertwitter) {
+    usertwitter.textContent = "not available";
+  } else {
+    usertwitter.textContent = userinfo.twitter_username;
+  }
+
+  useremail.textContent = userinfo.email;
+
+  if (!userblog) {
+    userblog.textContent = "not available!";
+  } else {
+    userblog.textContent = userinfo.blog;
+  }
 }
