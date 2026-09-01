@@ -1,0 +1,38 @@
+.container {
+    width: 350px;
+    height: 250px;
+    border: 2px solid;
+    background-color: cadetblue;
+    animation: myAnimation;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+}
+
+
+@keyframes myAnimation {
+    /* 0% {
+        background-color: cadetblue;
+        transform: translateY(10px);
+    }
+
+    50% {
+        background-color: chocolate;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        background-color: cadetblue;
+        transform: translateY(10px);
+    } */
+
+    from {
+        background-color: cadetblue;
+    }
+
+    to {
+        background-color: aquamarine;
+        transform: translate(300px  , -50px);
+    }
+
+}
