@@ -38,8 +38,11 @@ body {
     align-items: center;
     gap: 20px;
     width: min(100%, 1000px);
-    min-height: 85vh;
+    min-height: 45vh;
     position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    /* z-index: 2; */
 }
 
 .logoSection {
@@ -120,16 +123,21 @@ body {
     color: #E0E2E6;
 }
 
-.loading {
-    width: 30%;
-    height: 200px;
-
+.errorMsg {
+    font-family: rajdhani;
+    font-size: 17px;
+    text-align: center;
+    margin-top: 20px;
+    color: #E0E2E6;
+    border: 1px solid rgb(184, 56, 56);
+    box-shadow: 0px 0px 3.5px rgb(117, 49, 49);
+    padding: 3.5px 4.5px;
+    line-height: 25px;
+    visibility: hidden;
 }
 
-.loading_img {
+#alertlogo {
+    font-size: 20.5px;
+    color: rgb(184, 56, 56);
 
-    width: 99%;
-    height: 99%;
-    object-fit: contain;
-    visibility: hidden;
 }

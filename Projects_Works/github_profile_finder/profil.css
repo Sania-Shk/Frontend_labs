@@ -21,10 +21,10 @@
 
 /* ================= MAIN CONTAINER ================= */
 
-.Pfcontainer {
+.PFcontainer {
     border: 1px solid #aaafbb;
     box-shadow: 0px 0px 5px goldenrod;
-    border-radius: 5.5px ;
+    border-radius: 5.5px;
     background: linear-gradient(to left, #141C2F, #1F2A48);
     /* width: min(100% - 40px, 1200px); */
     width: 79vw;
@@ -32,7 +32,8 @@
     min-height: 50vh;
     display: grid;
     grid-template-columns: 300px 1fr;
-    position: absolute;
+    /* position: absolute;
+    z-index: 1; */
     visibility: hidden;
 }
 
@@ -206,17 +207,17 @@
 }
 
 
-#follower,
+/* #follower,
 #following {
     color: rgb(68, 147, 248);
-}
+} */
 
 
 #num {
     font-weight: 500;
     font-size: 16px;
 
-    color: rgb(240, 246, 252);
+    color: rgb(68, 147, 248);
 }
 
 
@@ -368,7 +369,7 @@
     border: 2px solid red;
 } */
 
-.joindate h3 {
+#userjoined {
     color: #aaafbb;
     font-family: "Mona Sans VF", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Backtick Fix", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-weight: 600;

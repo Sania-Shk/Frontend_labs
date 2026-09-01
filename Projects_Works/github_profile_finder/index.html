@@ -31,39 +31,38 @@
         <button id="btn">Search</button>
       </div>
 
-      <div class="loading">
-        <img src="assets/images/loadingimg.gif" class="loading_img" />
+      <div class="errorMsg">
+        <span id="alertlogo">⚠ &ensp;</span>
+        User not found <br />
+        Please check the username !!!
       </div>
     </div>
-    <div class="Pfcontainer">
+
+    <!-- -------------------------------------------------------------- -->
+
+    <div class="PFcontainer">
       <div class="left">
         <div class="introSection">
           <div class="userprofile">
-            <img src="assets/images/logo.JPG" class="profilePic" />
+            <img src="#" class="profilePic" />
           </div>
           <div class="useridentity">
-            <h2 id="userName">San-Shk</h2>
-            <h3 id="userId">san123</h3>
+            <h2 id="userName"></h2>
+            <h3 id="userId"></h3>
           </div>
         </div>
 
         <div class="detailSection">
-          <p id="userBio">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
-            quos?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
-            odit!
-          </p>
+          <p id="userBio"></p>
 
           <div class="userfrnds">
             <img src="assets/images/group.svg" class="group" />
             <div id="follower" style="margin: 0px 2.3px">
-              <span id="num" class="followernum">123</span>
-              followers
+              <span id="num" class="followernum">follower</span>
             </div>
-            <span style="margin: 0px 1.3px">|</span>
+            <span style="margin: 0px 1.3px; color: rgb(240, 246, 252)">|</span>
             <div id="following" style="margin: 0px 2.3px">
-              <span id="num" class="followingnum">53</span>
-              following
+              <span id="num" class="followingnum">following</span>
             </div>
           </div>
         </div>
@@ -72,7 +71,7 @@
       <div class="right">
         <div class="joindate">
           <img src="assets/images/clock.svg" id="joineddate" />
-          <h3 id="joined"></h3>
+          <h3 id="userjoined">Joined at :</h3>
         </div>
 
         <div class="repoTotal">

@@ -4,10 +4,14 @@ let userbutton = document.querySelector("#btn");
 let userName = document.querySelector("#userName");
 let userId = document.querySelector("#userId");
 let userBio = document.querySelector("#userBio");
+
 let followernum = document.querySelector(".followernum");
 let followingnum = document.querySelector(".followingnum");
 
-let joinDate = document.querySelector("#joined");
+// let follower = document.querySelector("#follower");
+// let following = document.querySelector("#following");
+
+let joinDate = document.querySelector("#userjoined");
 
 let repoList = document.querySelector(".repoList");
 let totalrepo = document.querySelector("#totalRepo");
@@ -16,6 +20,8 @@ let repolink = document.querySelector(".repolink");
 let profilePic = document.querySelector(".profilePic");
 let loading_img = document.querySelector(".loading_img");
 
+let errorMsg = document.querySelector(".errorMsg");
+
 // 2 main container:
 let container = document.querySelector(".container");
 let PFcontainer = document.querySelector(".PFcontainer");
@@ -23,40 +29,41 @@ let PFcontainer = document.querySelector(".PFcontainer");
 // main function
 userbutton.addEventListener("click", (event) => {
   event.preventDefault();
-  // if (getuserporfile) { will fix later!
-  //   setTimeout(() => {
-  //     loading_img.style.visibility = "visible";
-  //     alert("User Found!");
-
-  //     if (container.style.visibility === "visible") {
-  //       container.style.visibility = "hidden";
-  //       PFcontainer.style.visibility = "visible";
-  //     }
-  //   }, 3000);
-  // }
-
   getuserporfile();
-  // if (container.style.visibility === "visible") {
-  //   container.style.visibility = "hidden";
-  //   PFcontainer.style.visibility = "visible";
-  // }
-
   return (userinput.value = "");
 });
 
 async function getuserporfile() {
-  console.log("working start");
   let user = userinput.value;
   let apiurl = `https://api.github.com/users/${user}`;
   let repourl = `https://api.github.com/users/${user}/repos`;
-  let fetchdata = await fetch(apiurl);
-  const respone = await fetchdata.json();
 
-  let repodata = await fetch(repourl);
-  const repo_response = await repodata.json();
+  let respone;
+  let repo_response;
 
-  userDetail(respone);
-  userRepo(repo_response);
+  try {
+    let fetchdata = await fetch(apiurl);
+    if (!fetchdata.ok) {
+      throw new Error(`  User not found <br />
+        Please check the username !!!`);
+    }
+
+    errorMsg.style.visibility = "hidden";
+
+    PFcontainer.style.visibility = "visible";
+
+    respone = await fetchdata.json();
+    let repodata = await fetch(repourl);
+    repo_response = await repodata.json();
+
+    userDetail(respone);
+    userRepo(repo_response);
+  } catch (error) {
+    console.error(error.message);
+    errorMsg.innerHTML = error.message;
+    errorMsg.style.visibility = "visible";
+    PFcontainer.style.visibility = "hidden";
+  }
 }
 
 function userDetail(info) {
@@ -70,14 +77,13 @@ function userDetail(info) {
   } else {
     userBio.textContent = userInfo.bio;
   }
-  followernum.textContent = userInfo.followers;
-  followingnum.textContent = userInfo.following;
+  followernum.textContent = `${info.followers} follower`;
+  followingnum.textContent = `${info.following} following`;
 
   const optionsIn = { day: "numeric", month: "long", year: "numeric" }; //  converting date
-  joinDate.textContent = new Date(userInfo.created_at).toLocaleDateString(
-    "en-In",
-    optionsIn,
-  );
+  joinDate.textContent = `Joined at: ${new Date(
+    userInfo.created_at,
+  ).toLocaleDateString("en-In", optionsIn)}`;
 
   repolink.href = info.html_url; // github repository page
   profilePic.src = info.avatar_url; // user github profile picture
